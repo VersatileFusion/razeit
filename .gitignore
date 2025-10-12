@@ -93,12 +93,8 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# Uploads
+# Uploads (user-generated content only)
 uploads/
-*.png
-*.jpg
-*.jpeg
-*.gif
 
 # OS files
 .DS_Store
