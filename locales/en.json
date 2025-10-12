@@ -1,0 +1,151 @@
+{
+  "auth": {
+    "register": {
+      "success": "User registered successfully. Please check your email for verification.",
+      "user_exists": "User already exists with this email, username, or phone",
+      "validation_failed": "Validation failed"
+    },
+    "login": {
+      "success": "Login successful",
+      "invalid_credentials": "Invalid credentials",
+      "account_deactivated": "Account is deactivated"
+    },
+    "verify_email": {
+      "success": "Email verified successfully",
+      "invalid_token": "Invalid verification token"
+    },
+    "forgot_password": {
+      "email_sent": "Password reset email sent",
+      "user_not_found": "User not found"
+    },
+    "reset_password": {
+      "success": "Password reset successfully",
+      "invalid_token": "Invalid or expired reset token"
+    }
+  },
+  "user": {
+    "profile": {
+      "updated": "Profile updated successfully",
+      "phone_taken": "Phone number is already in use",
+      "avatar_uploaded": "Avatar uploaded successfully"
+    },
+    "password": {
+      "changed": "Password changed successfully",
+      "incorrect_current": "Current password is incorrect"
+    },
+    "account": {
+      "deactivated": "Account deactivated successfully"
+    }
+  },
+  "marketplace": {
+    "item": {
+      "created": "Item listed successfully",
+      "updated": "Item updated successfully",
+      "purchased": "Item purchased successfully",
+      "cancelled": "Item listing cancelled",
+      "not_found": "Item not found",
+      "not_available": "Item is no longer available",
+      "cannot_purchase_own": "Cannot purchase your own item",
+      "insufficient_gems": "Insufficient gems"
+    },
+    "like": {
+      "liked": "Item liked",
+      "unliked": "Item unliked"
+    }
+  },
+  "services": {
+    "service": {
+      "created": "Service created successfully",
+      "updated": "Service updated successfully",
+      "ordered": "Service ordered successfully",
+      "not_found": "Service not found",
+      "not_available": "Service is not available",
+      "cannot_order_own": "Cannot order your own service"
+    },
+    "order": {
+      "status_updated": "Order status updated successfully",
+      "not_found": "Order not found"
+    },
+    "review": {
+      "added": "Review added successfully",
+      "already_reviewed": "You have already reviewed this service",
+      "must_complete_order": "You must complete an order before reviewing"
+    }
+  },
+  "gems": {
+    "purchased": "Gems purchased successfully",
+    "insufficient": "Insufficient gems to remove",
+    "added": "Gems added to user",
+    "removed": "Gems removed from user"
+  },
+  "wheel": {
+    "spun": "Wheel spun successfully",
+    "daily_limit": "Daily spin limit reached",
+    "cooldown": "Please wait {minutes} minutes before spinning again",
+    "insufficient_gems": "Insufficient gems",
+    "insufficient_tokens": "Insufficient wheel tokens"
+  },
+  "payments": {
+    "intent_created": "Payment intent created successfully",
+    "confirmed": "Payment processed successfully",
+    "failed": "Payment failed",
+    "rial_created": "Rial payment created successfully",
+    "rial_verified": "Rial payment verified and processed successfully"
+  },
+  "steam": {
+    "connected": "Steam account connected successfully",
+    "disconnected": "Steam account disconnected successfully",
+    "not_connected": "Steam account not connected",
+    "invalid_id": "Invalid Steam ID format",
+    "already_connected": "This Steam account is already connected to another user",
+    "item_delivered": "Item delivered successfully",
+    "inventory_synced": "Inventory synced successfully"
+  },
+  "chat": {
+    "response_rated": "Response rated successfully"
+  },
+  "forums": {
+    "topic": {
+      "created": "Topic created successfully",
+      "updated": "Topic updated successfully",
+      "not_found": "Topic not found",
+      "locked": "Topic is locked"
+    },
+    "post": {
+      "added": "Post added successfully"
+    },
+    "like": {
+      "liked": "Topic liked",
+      "unliked": "Topic unliked"
+    },
+    "category": {
+      "created": "Category created successfully",
+      "not_found": "Category not found"
+    }
+  },
+  "admin": {
+    "user": {
+      "role_updated": "User role updated successfully",
+      "status_updated": "User {status} successfully",
+      "gems_updated": "{amount} gems {action} user"
+    },
+    "item": {
+      "status_updated": "Item status updated successfully"
+    },
+    "service": {
+      "status_updated": "Service status updated successfully"
+    },
+    "settings": {
+      "updated": "Settings updated successfully"
+    }
+  },
+  "common": {
+    "success": "Operation successful",
+    "error": "Something went wrong!",
+    "not_found": "Resource not found",
+    "unauthorized": "Access denied. No token provided.",
+    "forbidden": "Access denied. Insufficient privileges.",
+    "validation_failed": "Validation failed",
+    "internal_error": "Internal server error"
+  }
+}

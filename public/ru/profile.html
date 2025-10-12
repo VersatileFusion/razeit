@@ -1,0 +1,1029 @@
+<!doctype html>
+<html class="no-js " lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Razeit - Мой профиль</title>
+    <meta name="author" content="Razeit">
+    <meta name="description" content="Razeit - Esports & Gaming Platform">
+    <meta name="keywords" content="Razeit - Esports & Gaming Platform">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../assets/css/magnific-popup.min.css">
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        body {
+            background: url('../assets/img/bg/game_bg_1_1.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: -1;
+        }
+
+        .profile-wrapper {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+        }
+
+        .profile-header {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #45F882;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-avatar {
+            position: relative;
+        }
+
+        .avatar-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #45F882;
+            overflow: hidden;
+            background: rgba(69, 248, 130, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(69, 248, 130, 0.4);
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-circle i {
+            font-size: 60px;
+            color: #45F882;
+        }
+
+        .avatar-upload {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 40px;
+            height: 40px;
+            background: #45F882;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(69, 248, 130, 0.5);
+        }
+
+        .avatar-upload:hover {
+            transform: scale(1.1);
+            background: #6AFFAA;
+        }
+
+        .avatar-upload i {
+            color: #000;
+            font-size: 18px;
+        }
+
+        .avatar-upload input {
+            display: none;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-family: 'Goldman', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #45F882;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(69, 248, 130, 0.5);
+        }
+
+        .profile-username {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 20px;
+            color: #a0a0a0;
+            margin-bottom: 15px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(69, 248, 130, 0.1);
+            border: 1px solid rgba(69, 248, 130, 0.3);
+            border-radius: 8px;
+        }
+
+        .stat-item i {
+            color: #45F882;
+            font-size: 20px;
+        }
+
+        .stat-item span {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .profile-section {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #45F882;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Goldman', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #45F882;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(69, 248, 130, 0.3);
+            text-shadow: 0 0 15px rgba(69, 248, 130, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #45F882;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(69, 248, 130, 0.2);
+        }
+
+        .form-control:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: linear-gradient(90deg, #45F882 0%, #6AFFAA 100%);
+            border: none;
+            border-radius: 8px;
+            color: #000000;
+            font-family: 'Goldman', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(69, 248, 130, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            padding: 16px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Goldman', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-danger {
+            padding: 16px 40px;
+            background: rgba(255, 68, 68, 0.2);
+            border: 2px solid #ff4444;
+            border-radius: 8px;
+            color: #ff4444;
+            font-family: 'Goldman', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 68, 68, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-success {
+            background: rgba(69, 248, 130, 0.1);
+            border: 1px solid rgba(69, 248, 130, 0.3);
+            color: #45F882;
+        }
+
+        .alert-error {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            color: #ff4444;
+        }
+
+        .alert-info {
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            color: #00bfff;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-top-color: #000000;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .back-to-home {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .back-to-home a {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home a:hover {
+            background: rgba(69, 248, 130, 0.2);
+            border-color: #45F882;
+        }
+
+        .back-to-home i {
+            margin-right: 8px;
+        }
+
+        .info-item {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #45F882;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(69, 248, 130, 0.2);
+            border: 1px solid #45F882;
+            border-radius: 20px;
+            color: #45F882;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-danger {
+            background: rgba(255, 68, 68, 0.2);
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+
+        .edit-mode-toggle {
+            cursor: pointer;
+            color: #45F882;
+            transition: all 0.3s ease;
+        }
+
+        .edit-mode-toggle:hover {
+            color: #6AFFAA;
+            transform: scale(1.1);
+        }
+
+        #loadingOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loadingOverlay.active {
+            display: flex;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(69, 248, 130, 0.2);
+            border-top-color: #45F882;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cursor-animation cursor-image"></div>
+
+    <div class="back-to-home">
+        <a href="index.html">
+            <i class="fas fa-arrow-left"></i>
+            Назад на главную
+        </a>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+
+    <div class="profile-wrapper">
+        <div class="container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-circle">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <label class="avatar-upload">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="avatarInput" accept="image/*">
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name" id="displayName">Loading...</h1>
+                    <p class="profile-username">@<span id="displayUsername">username</span></p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Присоединился: <strong id="joinedDate">-</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Последний вход: <strong id="lastLogin">-</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-gem"></i>
+                            <span>Гемы: <strong id="gemsBalance">0</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Уровень: <strong id="userLevel">1</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Personal Information -->
+                <div class="col-lg-8">
+                    <div class="profile-section">
+                        <h2 class="section-title">
+                            Личная информация
+                            <i class="fas fa-edit edit-mode-toggle float-end" id="editToggle" title="Редактировать профиль"></i>
+                        </h2>
+                        
+                        <div id="alertContainer"></div>
+
+                        <form id="profileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">Имя</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Фамилия</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="username">Имя пользователя</label>
+                                <input type="text" id="username" name="username" class="form-control" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email адрес</label>
+                                <input type="email" id="email" name="email" class="form-control" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Номер телефона</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="bio">О себе</label>
+                                <textarea id="bio" name="bio" class="form-control" placeholder="Расскажите о себе..." disabled></textarea>
+                            </div>
+
+                            <div class="btn-group" id="formActions" style="display: none;">
+                                <button type="submit" class="btn-primary" id="saveBtn">
+                                    Сохранить изменения
+                                </button>
+                                <button type="button" class="btn-secondary" id="cancelBtn">
+                                    Отмена
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="col-lg-4">
+                    <!-- Account Status -->
+                    <div class="profile-section">
+                        <h2 class="section-title">Статус аккаунта</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Статус аккаунта</div>
+                            <div class="info-value">
+                                <span class="badge" id="statusBadge">Активный</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Email подтвержден</div>
+                            <div class="info-value">
+                                <span class="badge" id="emailVerified">Нет</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Телефон подтвержден</div>
+                            <div class="info-value">
+                                <span class="badge" id="phoneVerified">Нет</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Роль</div>
+                            <div class="info-value" id="userRole">User</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="profile-section">
+                        <h2 class="section-title">Быстрые действия</h2>
+                        
+                        <div class="btn-group" style="flex-direction: column;">
+                            <button class="btn-secondary" id="changePasswordBtn">
+                                <i class="fas fa-key"></i> Изменить пароль
+                            </button>
+                            <button class="btn-danger" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i> Выйти
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="../assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Swiper Js -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <!-- Theme Custom JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        // Configuration
+        const API_URL = 'http://localhost:5000/api';
+        
+        console.log('🎮 Razeit Profile Page Loaded');
+        console.log('📡 API URL:', API_URL);
+
+        // State
+        let isEditMode = false;
+        let originalData = {};
+        let currentUser = null;
+
+        // Get elements
+        const profileForm = document.getElementById('profileForm');
+        const alertContainer = document.getElementById('alertContainer');
+        const editToggle = document.getElementById('editToggle');
+        const formActions = document.getElementById('formActions');
+        const saveBtn = document.getElementById('saveBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const changePasswordBtn = document.getElementById('changePasswordBtn');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        // Form fields
+        const formFields = ['firstName', 'lastName', 'username', 'email', 'phone', 'bio'];
+
+        // Helper functions
+        function showAlert(message, type = 'error') {
+            console.log(`🔔 Alert: [${type.toUpperCase()}] ${message}`);
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}">
+                    ${message}
+                </div>
+            `;
+            
+            setTimeout(() => {
+                alertContainer.innerHTML = '';
+            }, 5000);
+        }
+
+        function setLoading(isLoading) {
+            console.log('⚙️ Loading state:', isLoading);
+            loadingOverlay.classList.toggle('active', isLoading);
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '-';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        function formatDateTime(dateString) {
+            if (!dateString) return '-';
+            const date = new Date(dateString);
+            return date.toLocaleString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Check authentication
+        function checkAuth() {
+            console.log('🔐 Checking authentication...');
+            const token = localStorage.getItem('authToken');
+            
+            if (!token) {
+                console.log('❌ No auth token found');
+                showAlert('Please sign in to view your profile', 'error');
+                setTimeout(() => {
+                    window.location.href = 'signin.html';
+                }, 2000);
+                return false;
+            }
+            
+            console.log('✅ Auth token found');
+            return token;
+        }
+
+        // Load user profile
+        async function loadProfile() {
+            console.log('📥 Loading user profile...');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            
+            const token = checkAuth();
+            if (!token) return;
+
+            setLoading(true);
+
+            try {
+                console.log('🌐 Endpoint:', `${API_URL}/auth/me`);
+                console.log('🎫 Using token:', token.substring(0, 20) + '...');
+                
+                const response = await fetch(`${API_URL}/auth/me`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                console.log('📊 Status Code:', response.status);
+                console.log('📊 Status Text:', response.statusText);
+                
+                const data = await response.json();
+                console.log('📦 Response Data:', data);
+
+                if (response.ok && data.success) {
+                    console.log('✅ Profile loaded successfully');
+                    currentUser = data.user;
+                    displayProfile(currentUser);
+                } else {
+                    console.log('❌ Failed to load profile');
+                    console.log('📝 Error:', data.message);
+                    
+                    if (response.status === 401) {
+                        showAlert('Session expired. Please sign in again.', 'error');
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('userData');
+                        setTimeout(() => {
+                            window.location.href = 'signin.html';
+                        }, 2000);
+                    } else {
+                        showAlert(data.message || 'Failed to load profile', 'error');
+                    }
+                }
+
+            } catch (error) {
+                console.error('💥 Request failed with error:');
+                console.error('Error Type:', error.name);
+                console.error('Error Message:', error.message);
+                console.error('Full Error:', error);
+                
+                showAlert('Failed to load profile. Please check your connection.', 'error');
+                
+            } finally {
+                setLoading(false);
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            }
+        }
+
+        // Display profile data
+        function displayProfile(user) {
+            console.log('🎨 Displaying profile data...');
+            
+            // Header info
+            document.getElementById('displayName').textContent = `${user.firstName} ${user.lastName}`;
+            document.getElementById('displayUsername').textContent = user.username;
+            document.getElementById('joinedDate').textContent = formatDate(user.createdAt);
+            document.getElementById('lastLogin').textContent = formatDateTime(user.statistics?.lastLogin || user.lastSeen);
+            document.getElementById('gemsBalance').textContent = user.wallet?.gems || 0;
+            document.getElementById('userLevel').textContent = user.statistics?.level || 1;
+
+            // Form fields
+            document.getElementById('firstName').value = user.firstName || '';
+            document.getElementById('lastName').value = user.lastName || '';
+            document.getElementById('username').value = user.username || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('phone').value = user.phone || '';
+            document.getElementById('bio').value = user.bio || '';
+
+            // Account status
+            document.getElementById('statusBadge').textContent = user.isActive ? 'Active' : 'Inactive';
+            document.getElementById('statusBadge').className = user.isActive ? 'badge' : 'badge badge-danger';
+            
+            document.getElementById('emailVerified').textContent = user.isVerified?.email ? 'Yes' : 'No';
+            document.getElementById('emailVerified').className = user.isVerified?.email ? 'badge' : 'badge badge-danger';
+            
+            document.getElementById('phoneVerified').textContent = user.isVerified?.phone ? 'Yes' : 'No';
+            document.getElementById('phoneVerified').className = user.isVerified?.phone ? 'badge' : 'badge badge-danger';
+            
+            document.getElementById('userRole').textContent = user.role || 'user';
+
+            // Store original data
+            originalData = { ...user };
+            
+            console.log('✅ Profile displayed successfully');
+        }
+
+        // Toggle edit mode
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            console.log('✏️ Edit mode:', isEditMode);
+            
+            formFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    element.disabled = !isEditMode;
+                }
+            });
+
+            // Username and email should remain disabled
+            document.getElementById('username').disabled = true;
+            document.getElementById('email').disabled = true;
+
+            formActions.style.display = isEditMode ? 'flex' : 'none';
+            editToggle.style.color = isEditMode ? '#6AFFAA' : '#45F882';
+        }
+
+        // Cancel edit
+        function cancelEdit() {
+            console.log('❌ Canceling edit...');
+            toggleEditMode();
+            displayProfile(currentUser);
+            alertContainer.innerHTML = '';
+        }
+
+        // Update profile
+        async function updateProfile(formData) {
+            console.log('📤 Updating profile...');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('📝 Form Data:', formData);
+            
+            const token = checkAuth();
+            if (!token) return;
+
+            setLoading(true);
+
+            try {
+                console.log('🌐 Endpoint:', `${API_URL}/users/profile`);
+                
+                const response = await fetch(`${API_URL}/users/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('📊 Status Code:', response.status);
+                console.log('📊 Status Text:', response.statusText);
+                
+                const data = await response.json();
+                console.log('📦 Response Data:', data);
+
+                if (response.ok && data.success) {
+                    console.log('✅ Profile updated successfully');
+                    currentUser = data.user || data.data?.user;
+                    displayProfile(currentUser);
+                    toggleEditMode();
+                    showAlert('Profile updated successfully!', 'success');
+                } else {
+                    console.log('❌ Update failed');
+                    console.log('📝 Error:', data.message);
+                    showAlert(data.message || 'Failed to update profile', 'error');
+                }
+
+            } catch (error) {
+                console.error('💥 Request failed with error:');
+                console.error('Error Type:', error.name);
+                console.error('Error Message:', error.message);
+                console.error('Full Error:', error);
+                
+                showAlert('Failed to update profile. Please try again.', 'error');
+                
+            } finally {
+                setLoading(false);
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            }
+        }
+
+        // Event listeners
+        editToggle.addEventListener('click', toggleEditMode);
+        cancelBtn.addEventListener('click', cancelEdit);
+
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log('📝 Profile form submitted');
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                bio: document.getElementById('bio').value.trim()
+            };
+            
+            updateProfile(formData);
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            console.log('🚪 Logging out...');
+            console.log('💾 Clearing localStorage...');
+            
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userData');
+            
+            console.log('✅ Logged out successfully');
+            showAlert('Logged out successfully', 'success');
+            
+            setTimeout(() => {
+                window.location.href = 'signin.html';
+            }, 1000);
+        });
+
+        // Change password
+        changePasswordBtn.addEventListener('click', () => {
+            console.log('🔑 Change password clicked');
+            showAlert('Change password feature coming soon!', 'info');
+        });
+
+        // Avatar upload
+        document.getElementById('avatarInput').addEventListener('change', (e) => {
+            console.log('📸 Avatar file selected');
+            const file = e.target.files[0];
+            
+            if (file) {
+                console.log('📁 File:', file.name);
+                console.log('📏 Size:', (file.size / 1024).toFixed(2) + ' KB');
+                console.log('📋 Type:', file.type);
+                
+                showAlert('Avatar upload feature coming soon!', 'info');
+            }
+        });
+
+        // Initialize
+        console.log('🎬 Initializing profile page...');
+        loadProfile();
+        console.log('✅ Profile page initialized and ready');
+    </script>
+
+</body>
+
+</html>

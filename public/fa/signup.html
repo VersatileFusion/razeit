@@ -1,0 +1,659 @@
+<!doctype html>
+<html class="no-js " lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Razeit - ثبت نام</title>
+    <meta name="author" content="Razeit">
+    <meta name="description" content="Razeit - Esports & Gaming Platform">
+    <meta name="keywords" content="Razeit - Esports & Gaming Platform">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../assets/css/magnific-popup.min.css">
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('../assets/img/bg/game_bg_1_1.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .auth-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1;
+        }
+
+        .auth-container {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #45F882;
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-logo {
+            margin-bottom: 25px;
+        }
+
+        .auth-logo img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .auth-title {
+            font-family: 'Goldman', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #45F882;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(69, 248, 130, 0.5);
+        }
+
+        .auth-subtitle {
+            font-family: 'Poppins', sans-serif;
+            color: #a0a0a0;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #45F882;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(69, 248, 130, 0.2);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 16px 30px;
+            background: linear-gradient(90deg, #45F882 0%, #6AFFAA 100%);
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Goldman', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(69, 248, 130, 0.4);
+        }
+
+        .btn-auth:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .auth-footer p {
+            color: #a0a0a0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .auth-footer a {
+            color: #45F882;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .auth-footer a:hover {
+            color: #6AFFAA;
+            text-shadow: 0 0 10px rgba(69, 248, 130, 0.5);
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 127, 0.1);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            color: #00ff7f;
+        }
+
+        .alert-error {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            color: #ff4444;
+        }
+
+        .alert-info {
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            color: #00bfff;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 3;
+        }
+
+        .back-to-home a {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home a:hover {
+            background: rgba(69, 248, 130, 0.2);
+            border-color: #45F882;
+        }
+
+        .back-to-home i {
+            margin-right: 8px;
+        }
+
+        .password-strength {
+            height: 4px;
+            margin-top: 8px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+        }
+
+        .strength-weak { background: #ff4444; width: 33%; }
+        .strength-medium { background: #ffaa00; width: 66%; }
+        .strength-strong { background: #00ff7f; width: 100%; }
+
+        .password-hint {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cursor-animation cursor-image"></div>
+
+    <div class="back-to-home">
+        <a href="index.html">
+            <i class="fas fa-arrow-left"></i>
+            بازگشت به خانه
+        </a>
+    </div>
+
+    <div class="auth-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="auth-container">
+                        <div class="auth-header">
+                            <div class="auth-logo">
+                                <img src="../assets/img/logo-dark-removebg-preview.png" alt="Razeit">
+                            </div>
+                            <h1 class="auth-title">ثبت نام</h1>
+                            <p class="auth-subtitle">همین امروز به بهترین جامعه گیمینگ بپیوندید!</p>
+                        </div>
+
+                        <div id="alertContainer"></div>
+
+                        <form id="signupForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">نام *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="نام خود را وارد کنید" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">نام خانوادگی *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="username">نام کاربری *</label>
+                                <input type="text" id="username" name="username" class="form-control" placeholder="یک نام کاربری منحصر به فرد انتخاب کنید" required>
+                                <small class="password-hint">3-20 کاراکتر، فقط حروف، اعداد و زیرخط</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">آدرس ایمیل *</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="آدرس ایمیل خود را وارد کنید" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phone">شماره تلفن (اختیاری)</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+989123456789">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="password">رمز عبور *</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="یک رمز عبور قوی ایجاد کنید" required>
+                                <div class="password-strength">
+                                    <div id="strengthBar" class="password-strength-bar"></div>
+                                </div>
+                                <small class="password-hint">حداقل 6 کاراکتر</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="confirmPassword">تأیید رمز عبور *</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="رمز عبور خود را تأیید کنید" required>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="btn-auth">
+                                ایجاد حساب
+                            </button>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p>قبلاً حساب دارید؟ <a href="signin.html">ورود</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==============================
+        All Js File
+    ============================== -->
+    <!-- Jquery -->
+    <script src="../assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Swiper Js -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <!-- Theme Custom JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        // Configuration
+        const API_URL = 'http://localhost:5000/api';
+        
+        console.log('🎮 Razeit Sign Up Page Loaded');
+        console.log('📡 API URL:', API_URL);
+
+        // Get form elements
+        const signupForm = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const alertContainer = document.getElementById('alertContainer');
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.getElementById('strengthBar');
+
+        // Function to show alerts
+        function showAlert(message, type = 'error') {
+            console.log(`🔔 Alert: [${type.toUpperCase()}] ${message}`);
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}">
+                    ${message}
+                </div>
+            `;
+            
+            // Auto-hide after 5 seconds for non-success messages
+            if (type !== 'success') {
+                setTimeout(() => {
+                    alertContainer.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        // Function to set loading state
+        function setLoading(isLoading) {
+            console.log('⚙️ Loading state:', isLoading);
+            submitBtn.disabled = isLoading;
+            
+            if (isLoading) {
+                submitBtn.innerHTML = 'در حال ایجاد حساب... <span class="loading-spinner"></span>';
+            } else {
+                submitBtn.innerHTML = 'ایجاد حساب';
+            }
+        }
+
+        // Password strength checker
+        passwordInput.addEventListener('input', (e) => {
+            const password = e.target.value;
+            const strength = calculatePasswordStrength(password);
+            
+            strengthBar.className = 'password-strength-bar';
+            
+            if (password.length === 0) {
+                strengthBar.className = 'password-strength-bar';
+            } else if (strength < 30) {
+                strengthBar.className = 'password-strength-bar strength-weak';
+                console.log('🔒 Password strength: Weak');
+            } else if (strength < 60) {
+                strengthBar.className = 'password-strength-bar strength-medium';
+                console.log('🔒 Password strength: Medium');
+            } else {
+                strengthBar.className = 'password-strength-bar strength-strong';
+                console.log('🔒 Password strength: Strong');
+            }
+        });
+
+        function calculatePasswordStrength(password) {
+            let strength = 0;
+            
+            if (password.length >= 6) strength += 20;
+            if (password.length >= 10) strength += 20;
+            if (/[a-z]/.test(password)) strength += 15;
+            if (/[A-Z]/.test(password)) strength += 15;
+            if (/[0-9]/.test(password)) strength += 15;
+            if (/[^a-zA-Z0-9]/.test(password)) strength += 15;
+            
+            return strength;
+        }
+
+        // Validate form
+        function validateForm(formData) {
+            console.log('🔍 Validating form data...');
+            
+            // Username validation
+            if (formData.username.length < 3 || formData.username.length > 20) {
+                showAlert('Username must be between 3 and 20 characters', 'error');
+                return false;
+            }
+            
+            if (!/^[a-zA-Z0-9_]+$/.test(formData.username)) {
+                showAlert('Username can only contain letters, numbers, and underscores', 'error');
+                return false;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showAlert('Please enter a valid email address', 'error');
+                return false;
+            }
+            
+            // Password validation
+            if (formData.password.length < 6) {
+                showAlert('Password must be at least 6 characters long', 'error');
+                return false;
+            }
+            
+            if (formData.password !== formData.confirmPassword) {
+                showAlert('Passwords do not match', 'error');
+                return false;
+            }
+            
+            console.log('✅ Form validation passed');
+            return true;
+        }
+
+        // Handle form submission
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            console.log('📝 Form submitted');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value
+            };
+            
+            console.log('📤 Form Data:');
+            console.log('  👤 First Name:', formData.firstName);
+            console.log('  👤 Last Name:', formData.lastName);
+            console.log('  🎮 Username:', formData.username);
+            console.log('  📧 Email:', formData.email);
+            console.log('  📱 Phone:', formData.phone || 'Not provided');
+            console.log('  🔒 Password: [HIDDEN]');
+            
+            // Validate form
+            if (!validateForm(formData)) {
+                console.log('❌ Validation failed');
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+                return;
+            }
+            
+            // Remove confirmPassword before sending to API
+            delete formData.confirmPassword;
+            
+            console.log('🌐 Endpoint:', `${API_URL}/auth/register`);
+            setLoading(true);
+
+            try {
+                console.log('⏳ Sending registration request...');
+                
+                const response = await fetch(`${API_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('📥 Response received');
+                console.log('📊 Status Code:', response.status);
+                console.log('📊 Status Text:', response.statusText);
+                
+                const data = await response.json();
+                console.log('📦 Response Data:', data);
+
+                if (response.ok && data.success) {
+                    console.log('✅ Registration successful!');
+                    console.log('👤 User Data:', data.user || data.data?.user);
+                    
+                    showAlert('Account created successfully! Redirecting to sign in...', 'success');
+                    
+                    console.log('🔄 Redirecting to sign in page in 2 seconds...');
+                    setTimeout(() => {
+                        window.location.href = 'signin.html';
+                    }, 2000);
+                    
+                } else {
+                    console.log('❌ Registration failed');
+                    console.log('📝 Error message:', data.message);
+                    
+                    if (data.errors && Array.isArray(data.errors)) {
+                        console.log('📝 Validation errors:', data.errors);
+                        const errorMessages = data.errors.map(err => err.msg || err.message).join(', ');
+                        showAlert(errorMessages, 'error');
+                    } else {
+                        showAlert(data.message || 'Registration failed. Please try again.', 'error');
+                    }
+                }
+
+            } catch (error) {
+                console.error('💥 Request failed with error:');
+                console.error('Error Type:', error.name);
+                console.error('Error Message:', error.message);
+                console.error('Full Error:', error);
+                
+                let errorMessage = 'Connection failed. ';
+                
+                if (error.message.includes('Failed to fetch')) {
+                    errorMessage += 'Backend server is not running or not accessible.';
+                    console.log('💡 Tip: Make sure your backend server is running on ' + API_URL);
+                } else {
+                    errorMessage += error.message;
+                }
+                
+                showAlert(errorMessage, 'error');
+                
+            } finally {
+                setLoading(false);
+                console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            }
+        });
+
+        // Log when form fields change
+        ['firstName', 'lastName', 'username', 'email', 'phone'].forEach(fieldId => {
+            document.getElementById(fieldId).addEventListener('input', (e) => {
+                console.log(`✏️ ${fieldId} field changed:`, e.target.value);
+            });
+        });
+
+        document.getElementById('password').addEventListener('input', () => {
+            console.log('✏️ Password field changed: [HIDDEN]');
+        });
+
+        document.getElementById('confirmPassword').addEventListener('input', () => {
+            console.log('✏️ Confirm password field changed: [HIDDEN]');
+        });
+
+        console.log('✅ Sign Up form initialized and ready');
+    </script>
+
+</body>
+
+</html>
