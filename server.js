@@ -14,6 +14,9 @@ require('dotenv').config();
 
 const app = express();
 
+// Trust proxy - required for Render and other cloud platforms
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
@@ -33,24 +36,38 @@ app.use(helmet({
 }));
 app.use(compression());
 
-// Rate limiting - more lenient for development
+// Rate limiting configuration
 const limiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: process.env.NODE_ENV === 'development' ? 1000 : parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // More requests allowed in development
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 1000, // 1000 requests per 15 minutes
   message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
   skip: (req) => {
-    // Skip rate limiting for static assets in development
-    if (process.env.NODE_ENV === 'development' && req.path.startsWith('/assets/')) {
-      return true;
-    }
-    return false;
+    // Skip rate limiting for static assets (images, CSS, JS, fonts)
+    const staticPaths = ['/assets/', '/en/', '/fa/', '/ru/', '/public/'];
+    return staticPaths.some(path => req.path.startsWith(path)) && 
+           (req.path.endsWith('.css') || 
+            req.path.endsWith('.js') || 
+            req.path.endsWith('.png') || 
+            req.path.endsWith('.jpg') || 
+            req.path.endsWith('.jpeg') || 
+            req.path.endsWith('.gif') || 
+            req.path.endsWith('.svg') || 
+            req.path.endsWith('.ico') || 
+            req.path.endsWith('.woff') || 
+            req.path.endsWith('.woff2') || 
+            req.path.endsWith('.ttf') || 
+            req.path.endsWith('.otf'));
   }
 });
-app.use(limiter);
+
+// Apply rate limiting only to API routes, not static files
+app.use('/api/', limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? ['https://yourdomain.com'] : ['http://localhost:3000', 'http://localhost:5000'],
+  origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : true, // Allow all origins or specific ones from env
   credentials: true
 }));
 
