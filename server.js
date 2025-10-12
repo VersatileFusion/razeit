@@ -160,12 +160,13 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📊 Environment: ${process.env.NODE_ENV}`);
   console.log(`🌐 Health check: http://localhost:${PORT}/api/health`);
   console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
   console.log(`🌍 Supported Languages: English, Persian (فارسی), Russian (Русский)`);
+  console.log(`✅ Server is ready to accept connections`);
 });
 
 module.exports = app;
