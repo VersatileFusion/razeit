@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 // MongoDB connection
-const MONGODB_URI = 'mongodb+srv://erfanahmadvand52:SL9IpmJKT4T3lhVK@cluster0.hmm0pik.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = 'mongodb+srv://<username>:<password>@cluster0.hmm0pik.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Import User model
 const User = require('./models/User');
