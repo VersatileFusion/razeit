@@ -404,6 +404,124 @@ router.put('/marketplace/:id/status', authMiddleware, adminMiddleware, [
   }
 });
 
+// Create marketplace item (Admin)
+router.post('/marketplace', authMiddleware, adminMiddleware, [
+  body('title').notEmpty().trim(),
+  body('description').notEmpty().trim(),
+  body('category').isIn(['csgo', 'dota2', 'tf2', 'rust', 'other']),
+  body('itemType').isIn(['weapon', 'skin', 'knife', 'glove', 'sticker', 'case', 'key', 'other']),
+  body('rarity').isIn(['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']),
+  body('condition').isIn(['factory-new', 'minimal-wear', 'field-tested', 'well-worn', 'battle-scarred']),
+  body('price.gems').isInt({ min: 0 }),
+  body('price.usd').isFloat({ min: 0 }),
+  body('price.rial').isInt({ min: 0 }),
+  body('seller').isMongoId(),
+  body('images').optional().isArray(),
+  body('tags').optional().isArray()
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
+      });
+    }
+
+    const {
+      title,
+      description,
+      category,
+      itemType,
+      rarity,
+      condition,
+      price,
+      seller,
+      images = [],
+      tags = [],
+      steamItemId,
+      steamMarketUrl
+    } = req.body;
+
+    // Verify seller exists
+    const sellerUser = await User.findById(seller);
+    if (!sellerUser) {
+      return res.status(404).json({
+        success: false,
+        message: 'Seller not found'
+      });
+    }
+
+    const item = new MarketplaceItem({
+      title,
+      description,
+      category,
+      itemType,
+      rarity,
+      condition,
+      price,
+      seller,
+      images,
+      tags,
+      steamItemId,
+      steamMarketUrl,
+      status: 'active',
+      views: 0,
+      likes: []
+    });
+
+    await item.save();
+    await item.populate('seller', 'username email');
+
+    res.status(201).json({
+      success: true,
+      message: 'Marketplace item created successfully',
+      item
+    });
+
+  } catch (error) {
+    console.error('Create marketplace item error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create marketplace item'
+    });
+  }
+});
+
+// Delete marketplace item (Admin)
+router.delete('/marketplace/:id', authMiddleware, adminMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const item = await MarketplaceItem.findById(id);
+    if (!item) {
+      return res.status(404).json({
+        success: false,
+        message: 'Item not found'
+      });
+    }
+
+    await MarketplaceItem.findByIdAndDelete(id);
+
+    res.json({
+      success: true,
+      message: 'Marketplace item deleted successfully',
+      item: {
+        id: item._id,
+        title: item.title
+      }
+    });
+
+  } catch (error) {
+    console.error('Delete marketplace item error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to delete marketplace item'
+    });
+  }
+});
+
 // Services management
 router.get('/services', authMiddleware, adminMiddleware, [
   query('page').optional().isInt({ min: 1 }),

@@ -435,7 +435,11 @@
                         <p style="color: #a0a0a0; font-size: 16px;">Вот что происходит с вашей учетной записью сегодня.</p>
                     </div>
                     <div class="col-md-4 text-end">
-                        <a href="profile.html" class="action-btn" style="display: inline-flex; padding: 15px 30px;">
+                        <button id="refreshBtn" class="action-btn" style="display: inline-flex !important; flex-direction: row !important; padding: 15px 30px; margin-right: 15px;">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Обновить</span>
+                        </button>
+                        <a href="profile.html" class="action-btn" style="display: inline-flex !important; flex-direction: row !important; padding: 15px 30px;">
                             <i class="fas fa-user-circle"></i>
                             <span>Просмотр профиля</span>
                         </a>
@@ -614,10 +618,15 @@
             
             if (!token) {
                 console.log('❌ No auth token found');
-                alert('Please sign in to view dashboard');
-                setTimeout(() => {
+                Swal.fire({
+                    title: 'Требуется авторизация',
+                    text: 'Пожалуйста, войдите в систему для просмотра панели управления',
+                    icon: 'warning',
+                    confirmButtonText: 'Войти',
+                    allowOutsideClick: false
+                }).then(() => {
                     window.location.href = 'signin.html';
-                }, 1000);
+                });
                 return false;
             }
             
@@ -707,11 +716,22 @@
                 console.error('💥 Error loading dashboard:', error);
                 
                 if (error.message.includes('401')) {
-                    alert('Session expired. Please sign in again.');
-                    localStorage.removeItem('authToken');
-                    window.location.href = 'signin.html';
+                    Swal.fire({
+                        title: 'Сессия истекла',
+                        text: 'Пожалуйста, войдите в систему снова.',
+                        icon: 'warning',
+                        confirmButtonText: 'Войти'
+                    }).then(() => {
+                        localStorage.removeItem('authToken');
+                        window.location.href = 'signin.html';
+                    });
                 } else {
-                    alert('Failed to load dashboard. Please try again.');
+                    Swal.fire({
+                        title: 'Ошибка',
+                        text: 'Не удалось загрузить панель управления. Пожалуйста, попробуйте снова.',
+                        icon: 'error',
+                        confirmButtonText: 'ОК'
+                    });
                 }
             } finally {
                 setLoading(false);
@@ -854,32 +874,54 @@
         // Quick action handlers
         document.getElementById('sellItemBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Sell Item feature coming soon!');
+            window.location.href = 'marketplace.html?action=create';
         });
 
         document.getElementById('buyGemsBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Buy Gems feature coming soon!');
+            window.location.href = 'marketplace.html?tab=gems';
         });
 
         document.getElementById('spinWheelBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Spin Wheel feature coming soon!');
+            window.location.href = 'marketplace.html?tab=wheel';
         });
 
         document.getElementById('browseMarketBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Browse Market feature coming soon!');
+            window.location.href = 'marketplace.html';
         });
 
         document.getElementById('servicesBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Services feature coming soon!');
+            window.location.href = 'service.html';
+        });
+
+        // Additional dashboard features
+        function refreshDashboard() {
+            console.log('🔄 Refreshing dashboard...');
+            loadDashboard();
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(refreshDashboard, 5 * 60 * 1000);
+
+        // Add refresh button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', refreshDashboard);
+            }
         });
 
         document.getElementById('steamBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Steam Connect feature coming soon!');
+            Swal.fire({
+                title: 'Скоро!',
+                text: 'Функция подключения Steam находится в разработке.',
+                icon: 'info',
+                confirmButtonText: 'ОК'
+            });
         });
 
         console.log('✅ Dashboard initialized');

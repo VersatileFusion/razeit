@@ -435,6 +435,10 @@
                         <p style="color: #a0a0a0; font-size: 16px;">Here's what's happening with your account today.</p>
                     </div>
                     <div class="col-md-4 text-end">
+                        <button id="refreshBtn" class="action-btn" style="display: inline-flex; padding: 15px 30px; margin-right: 15px;">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Refresh</span>
+                        </button>
                         <a href="profile.html" class="action-btn" style="display: inline-flex; padding: 15px 30px;">
                             <i class="fas fa-user-circle"></i>
                             <span>View Profile</span>
@@ -591,6 +595,140 @@
     ============================== -->
     <script src="../assets/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- SweetAlert2 Custom Theme -->
+    <style>
+        .swal2-popup {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 2px solid var(--theme-color, #45F882) !important;
+            border-radius: 15px !important;
+            box-shadow: 0 0 30px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-family: var(--title-font, 'Rajdhani', sans-serif) !important;
+            font-weight: 600 !important;
+            font-size: 24px !important;
+        }
+        
+        .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-confirm {
+            background: linear-gradient(135deg, var(--theme-color, #45F882) 0%, #2ECC71 100%) !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            box-shadow: 0 4px 15px rgba(69, 248, 130, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-confirm:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(69, 248, 130, 0.6) !important;
+        }
+        
+        .swal2-cancel {
+            background: var(--black-color3, #0F1C23) !important;
+            border: 2px solid var(--th-border-color, #6C6C6C) !important;
+            border-radius: 8px !important;
+            color: var(--body-color, #969EB2) !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-cancel:hover {
+            background: var(--th-border-color, #6C6C6C) !important;
+            color: var(--white-color, #ffffff) !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .swal2-icon.swal2-success {
+            border-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-success .swal2-success-ring {
+            border-color: rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-icon.swal2-success [class^=swal2-success-line] {
+            background-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-warning {
+            border-color: var(--theme-color2, #FFBE18) !important;
+            color: var(--theme-color2, #FFBE18) !important;
+        }
+        
+        .swal2-icon.swal2-error {
+            border-color: var(--error-color, #F2003A) !important;
+            color: var(--error-color, #F2003A) !important;
+        }
+        
+        .swal2-icon.swal2-info {
+            border-color: var(--theme-color3, #6240CF) !important;
+            color: var(--theme-color3, #6240CF) !important;
+        }
+        
+        .swal2-toast {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 1px solid var(--theme-color, #45F882) !important;
+            border-radius: 10px !important;
+            box-shadow: 0 0 20px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-toast .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-toast .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 14px !important;
+        }
+        
+        .swal2-close {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 28px !important;
+        }
+        
+        .swal2-close:hover {
+            color: var(--theme-color, #45F882) !important;
+        }
+        
+        /* Animation enhancements */
+        .swal2-show {
+            animation: swal2-show 0.3s ease-out !important;
+        }
+        
+        @keyframes swal2-show {
+            0% {
+                transform: scale(0.7) !important;
+                opacity: 0 !important;
+            }
+            45% {
+                transform: scale(1.05) !important;
+                opacity: 1 !important;
+            }
+            80% {
+                transform: scale(0.95) !important;
+            }
+            100% {
+                transform: scale(1) !important;
+            }
+        }
+    </style>
 
     <script>
         // Configuration
@@ -614,10 +752,15 @@
             
             if (!token) {
                 console.log('❌ No auth token found');
-                alert('Please sign in to view dashboard');
-                setTimeout(() => {
+                Swal.fire({
+                    title: 'Authentication Required',
+                    text: 'Please sign in to view dashboard',
+                    icon: 'warning',
+                    confirmButtonText: 'Sign In',
+                    allowOutsideClick: false
+                }).then(() => {
                     window.location.href = 'signin.html';
-                }, 1000);
+                });
                 return false;
             }
             
@@ -707,11 +850,22 @@
                 console.error('💥 Error loading dashboard:', error);
                 
                 if (error.message.includes('401')) {
-                    alert('Session expired. Please sign in again.');
-                    localStorage.removeItem('authToken');
-                    window.location.href = 'signin.html';
+                    Swal.fire({
+                        title: 'Session Expired',
+                        text: 'Please sign in again.',
+                        icon: 'warning',
+                        confirmButtonText: 'Sign In'
+                    }).then(() => {
+                        localStorage.removeItem('authToken');
+                        window.location.href = 'signin.html';
+                    });
                 } else {
-                    alert('Failed to load dashboard. Please try again.');
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Failed to load dashboard. Please try again.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             } finally {
                 setLoading(false);
@@ -854,32 +1008,54 @@
         // Quick action handlers
         document.getElementById('sellItemBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Sell Item feature coming soon!');
+            window.location.href = 'marketplace.html?action=create';
         });
 
         document.getElementById('buyGemsBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Buy Gems feature coming soon!');
+            window.location.href = 'marketplace.html?tab=gems';
         });
 
         document.getElementById('spinWheelBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Spin Wheel feature coming soon!');
+            window.location.href = 'marketplace.html?tab=wheel';
         });
 
         document.getElementById('browseMarketBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Browse Market feature coming soon!');
+            window.location.href = 'marketplace.html';
         });
 
         document.getElementById('servicesBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Services feature coming soon!');
+            window.location.href = 'service.html';
+        });
+
+        // Additional dashboard features
+        function refreshDashboard() {
+            console.log('🔄 Refreshing dashboard...');
+            loadDashboard();
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(refreshDashboard, 5 * 60 * 1000);
+
+        // Add refresh button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', refreshDashboard);
+            }
         });
 
         document.getElementById('steamBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Steam Connect feature coming soon!');
+            Swal.fire({
+                title: 'Coming Soon!',
+                text: 'Steam Connect feature is under development.',
+                icon: 'info',
+                confirmButtonText: 'OK'
+            });
         });
 
         console.log('✅ Dashboard initialized');

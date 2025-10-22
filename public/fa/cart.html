@@ -1,0 +1,1006 @@
+<!doctype html>
+<html class="no-js " lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Razeit - سبد خرید</title>
+    <meta name="author" content="Razeit">
+    <meta name="description" content="Razeit - سبد خرید">
+    <meta name="keywords" content="Razeit - سبد خرید">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="../assets/css/magnific-popup.min.css">
+    <!-- Swiper Js -->
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* RTL specific styles */
+        .cart_table th, .cart_table td {
+            text-align: right;
+        }
+        .quantity {
+            direction: ltr;
+        }
+        .cart_totals th, .cart_totals td {
+            text-align: right;
+        }
+        .breadcumb-menu {
+            direction: rtl;
+        }
+        .breadcumb-menu li {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+        .breadcumb-menu li:before {
+            content: "←";
+            margin-left: 10px;
+        }
+        .breadcumb-menu li:last-child:before {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cursor-animation cursor-image"></div>
+
+    <!--[if lte IE 9]>
+    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  	<![endif]-->
+
+    <!--********************************
+   		Code Start From Here 
+	******************************** -->
+
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div class="preloader ">
+        <button class="th-btn preloaderCls">لغو پیش بارگذاری</button>
+        <div class="preloader-inner">
+            <span class="loader"></span>
+        </div>
+    </div><!--==============================
+    Sidemenu
+============================== -->
+    <div class="sidemenu-wrapper sidemenu-cart ">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget woocommerce widget_shopping_cart">
+                <h3 class="widget_title">سبد خرید</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="#"><img src="../assets/img/product/product_thumb_1_1.png" alt="تصویر سبد">هدفون گیمینگ</a>
+                            <span class="quantity">1 ×
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>940.00</span>
+                            </span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="#"><img src="../assets/img/product/product_thumb_1_2.png" alt="تصویر سبد">ماوس گیمینگ</a>
+                            <span class="quantity">1 ×
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>899.00</span>
+                            </span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="#"><img src="../assets/img/product/product_thumb_1_3.png" alt="تصویر سبد">کیبورد گیمینگ</a>
+                            <span class="quantity">1 ×
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>756.00</span>
+                            </span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="#"><img src="../assets/img/product/product_thumb_1_4.png" alt="تصویر سبد">صندلی گیمینگ</a>
+                            <span class="quantity">1 ×
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>723.00</span>
+                            </span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
+                            <a href="#"><img src="../assets/img/product/product_thumb_1_5.png" alt="تصویر سبد">میکروفون G9000</a>
+                            <span class="quantity">1 ×
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <p class="woocommerce-mini-cart__total total">
+                        <strong>جمع کل:</strong>
+                        <span class="woocommerce-Price-amount amount">
+                            <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
+                    </p>
+                    <p class="woocommerce-mini-cart__buttons buttons">
+                        <a href="cart.html" class="th-btn wc-forward">مشاهده سبد <span class="icon"><i class="fa-solid fa-arrow-up-right ms-3"></i></span></a>
+                        <a href="checkout.html" class="th-btn checkout wc-forward">تسویه حساب <span class="icon"><i class="fa-solid fa-arrow-up-right ms-3"></i></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+    Sidemenu
+============================== -->
+    <div class="sidemenu-wrapper sidemenu-info d-none d-lg-block ">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget footer-widget">
+                <div class="th-widget-about">
+                    <div class="about-logo">
+                        <a href="index.html">
+                            <span data-mask-src="../assets/img/logo.svg" class="logo-mask"></span>
+                            <img src="../assets/img/logo.svg" alt="Razeit">
+                        </a>
+                    </div>
+                    <p class="about-text">فراتر از تورنمنت‌های ورزشی الکترونیکی، شامل تقویم گسترده‌تری از رویدادهای گیمینگ، کنفرانس‌ها و کنوانسیون‌ها.</p>
+                    <h3 class="widget_title">دنبال کنید <span class="text-theme">با ما:</span></h3>
+                    <div class="th-widget-contact">
+                        <div class="th-social style-mask">
+                            <a class="facebook" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="twitter" href="https://www.twitter.com/"><img src="../assets/img/icon/x-twitter-icon.svg" alt="icon"></a>
+                            <a class="instagram" href="https://www.instagram.com/">
+                                <img src="../assets/img/icon/instagram-icon.svg" alt="icon">
+                            </a>
+                            <a class="linkedin" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                            <a class="google-play" href="https://www.google.com/">
+                                <img src="../assets/img/icon/google-playstore-icon.svg" alt="icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget  ">
+                <h3 class="widget_title">پست‌های اخیر</h3>
+                <div class="recent-post-wrap">
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html"><img src="../assets/img/blog/recent-post-1-1.jpg" alt="تصویر بلاگ"></a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">یک روز در زندگی یک رویداد ورزشی الکترونیکی و لذت بردن</a></h4>
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="fa-light fa-calendar"></i>30 نوامبر، 2024</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html"><img src="../assets/img/blog/recent-post-1-2.jpg" alt="تصویر بلاگ"></a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">استراتژی‌هایی برای تسلط بر بازی مورد علاقه شما</a></h4>
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="fa-light fa-calendar"></i>05 دسامبر، 2024</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html"><img src="../assets/img/blog/recent-post-1-3.jpg" alt="تصویر بلاگ"></a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">پشت صحنه بازی مورد علاقه شما</a></h4>
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="fa-light fa-calendar"></i>09 سپتامبر، 2024</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget newsletter-widget  ">
+                <h3 class="widget_title">خبرنامه</h3>
+                <p class="footer-text">برای دریافت آخرین به‌روزرسانی‌ها و اخبار ما در خبرنامه ما مشترک شوید</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder="آدرس ایمیل" required="">
+                        <button type="submit" class="th-btn"><i class="far fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup-search-box d-none d-lg-block">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" placeholder="به دنبال چه چیزی هستید؟">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div><!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="th-menu-wrapper">
+        <div class="th-menu-area text-center">
+            <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="index.html"><span data-mask-src="../assets/img/logo.svg" class="logo-mask"></span><img src="../assets/img/logo.svg" alt="Razeit"></a>
+            </div>
+            <div class="th-mobile-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">خانه</a>
+                    </li>
+                    <li><a href="about.html">انجمن‌ها</a></li>
+                    <li>
+                        <a href="#">بازار</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">بلاگ</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog.html">بلاگ</a></li>
+                            <li><a href="blog-details.html">جزئیات بلاگ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">پروفایل من</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">تماس</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="color-scheme-wrap active">
+        <button class="switchIcon"><i class="fa-solid fa-palette"></i></button>
+        <h4 class="color-scheme-wrap-title"><i class="far fa-palette"></i> تغییر رنگ</h4>
+        <div class="color-switch-btns">
+            <button data-color="#6240CF"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#FFBE18"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#24FFF2"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#45F882"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#FF7E02"><i class="fa-solid fa-droplet"></i></button>
+        </div>
+    </div><!--==============================
+	Header Area
+==============================-->
+    <header class="th-header header-default">
+        <div class="sticky-wrapper">
+            <!-- Main Menu Area -->
+            <div class="menu-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <span data-mask-src="../assets/img/logo.svg" class="logo-mask"></span>
+                                    <img src="../assets/img/logo.svg" alt="Razeit">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <nav class="main-menu d-none d-lg-inline-block">
+                                <ul>
+                                    <li>
+                                        <a href="index.html">خانه</a>
+                                    </li>
+                                    <li><a href="about.html">انجمن‌ها</a></li>
+                                    <li>
+                                        <a href="#">بازار</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">بلاگ</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog.html">بلاگ</a></li>
+                                            <li><a href="blog-details.html">جزئیات بلاگ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">پروفایل من</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">تماس</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="header-button d-flex d-lg-none">
+                                <button type="button" class="th-menu-toggle"><span class="btn-border"></span><i class="far fa-bars"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-auto d-none d-xl-block">
+                            <div class="header-button">
+                                <button type="button" class="simple-icon searchBoxToggler"><i class="far fa-search"></i></button>
+                                <button type="button" class="simple-icon sideMenuInfo">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                                <div class="d-xxl-block d-none">
+                                    <a href="contact.html" class="th-btn"><i class="fa-brands fa-twitch me-1"></i>ثبت نام/ورود</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-bg"></div>
+            </div>
+        </div>
+    </header>
+    <!--==============================
+    Breadcumb
+============================== -->
+    <div class="breadcumb-wrapper " data-bg-src="../assets/img/gallery/cart-page-image.png">
+        <div class="container">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">صفحه سبد خرید</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">خانه</a></li>
+                    <li>صفحه سبد خرید</li>
+                </ul>
+            </div>
+        </div>
+    </div><!--==============================
+Cart Area
+==============================-->
+    <div class="th-cart-wrapper  space-top space-extra-bottom">
+        <div class="container">
+            <div class="woocommerce-notices-wrapper">
+                <div class="woocommerce-message">هزینه‌های ارسال به‌روزرسانی شد.</div>
+            </div>
+            <form action="#" class="woocommerce-cart-form">
+                <table class="cart_table">
+                    <thead>
+                        <tr>
+                            <th class="cart-col-image">تصویر</th>
+                            <th class="cart-col-productname">نام محصول</th>
+                            <th class="cart-col-price">قیمت</th>
+                            <th class="cart-col-quantity">تعداد</th>
+                            <th class="cart-col-total">مجموع</th>
+                            <th class="cart-col-remove">حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cart_item">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="../assets/img/product/product_thumb_1_1.png" alt="Image"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-detailis.html">هدفون گیمینگ</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="1" min="1" max="99">
+                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="cart_item">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="../assets/img/product/product_thumb_1_2.png" alt="Image"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-detailis.html">ماوس گیمینگ</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="1" min="1" max="99">
+                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="cart_item">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="../assets/img/product/product_thumb_1_3.png" alt="Image"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="shop-detailis.html">کیبورد گیمینگ</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="1" min="1" max="99">
+                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="actions">
+                                <div class="th-cart-coupon">
+                                    <input type="text" class="form-control" placeholder="کد کوپن...">
+                                    <button type="submit" class="th-btn">اعمال کوپن</button>
+                                </div>
+                                <button type="submit" class="th-btn">به‌روزرسانی سبد</button>
+                                <a href="marketplace.html" class="th-btn">ادامه خرید</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="row justify-content-end">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <h2 class="h4 summary-title">مجموع سبد</h2>
+                    <table class="cart_totals">
+                        <tbody>
+                            <tr>
+                                <td>جمع فرعی سبد</td>
+                                <td data-title="Cart Subtotal">
+                                    <span class="amount"><bdi><span>$</span>47</bdi></span>
+                                </td>
+                            </tr>
+                            <tr class="shipping">
+                                <th>ارسال و پردازش</th>
+                                <td data-title="Shipping and Handling">
+                                    <ul class="woocommerce-shipping-methods list-unstyled">
+                                        <li>
+                                            <input type="radio" id="free_shipping" name="shipping_method" class="shipping_method">
+                                            <label for="free_shipping">ارسال رایگان</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" checked="checked">
+                                            <label for="flat_rate">نرخ ثابت</label>
+                                        </li>
+                                    </ul>
+                                    <p class="woocommerce-shipping-destination">
+                                        گزینه‌های ارسال در طول تسویه حساب به‌روزرسانی خواهد شد.
+                                    </p>
+                                    <form action="#" method="post">
+                                        <a href="#" class="shipping-calculator-button">تغییر آدرس</a>
+                                        <div class="shipping-calculator-form">
+                                            <p class="form-row">
+                                                <select class="form-select">
+                                                    <option value="AR">آرژانتین</option>
+                                                    <option value="AM">ارمنستان</option>
+                                                    <option value="BD" selected="selected">بنگلادش</option>
+                                                </select>
+                                            </p>
+                                            <p>
+                                                <select class="form-select">
+                                                    <option value="">یک گزینه انتخاب کنید…</option>
+                                                    <option value="BD-05">بگرات</option>
+                                                    <option value="BD-01">بندربران</option>
+                                                    <option value="BD-02">بارگونا</option>
+                                                    <option value="BD-06">باریشال</option>
+                                                </select>
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="text" class="form-control" placeholder="شهر / شهرستان">
+                                            </p>
+                                            <p class="form-row">
+                                                <input type="text" class="form-control" placeholder="کد پستی / ZIP">
+                                            </p>
+                                            <p>
+                                                <button class="th-btn">به‌روزرسانی</button>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="order-total">
+                                <td>مجموع سفارش</td>
+                                <td data-title="Total">
+                                    <strong><span class="amount"><bdi><span>$</span>47</bdi></span></strong>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="wc-proceed-to-checkout mb-30">
+                        <a href="checkout.html" class="th-btn">ادامه به تسویه حساب</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+	Footer Area
+==============================-->
+    <footer class="footer-wrapper footer-layout1">
+        <div class="container">
+            <div class="footer-top text-center">
+                <div class="footer-logo bg-repeat" data-bg-src="../assets/img/bg/jiji-bg.png">
+                    <a href="index.html">
+                        <span data-mask-src="../assets/img/logo.svg" class="logo-mask"></span>
+                        <img src="../assets/img/logo.svg" alt="Razeit">
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">خانه</a></li>
+                        <li><a href="about.html">درباره ما</a></li>
+                        <li><a href="tournament.html">تورنمنت</a></li>
+                        <li><a href="blog.html">بلاگ</a></li>
+                        <li><a href="gallery.html">گالری</a></li>
+                        <li><a href="contact.html">تماس</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="widget-area">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 col-lg-auto">
+                        <div class="widget footer-widget">
+                            <h3 class="widget_title">موقعیت <span class="text-theme">دفتر:</span></h3>
+                            <div class="th-widget-contact">
+                                <div class="info-box">
+                                    <p class="info-box_text">
+                                        طبقه 2، خیابان ناوال 4، آنکوتس، منچستر
+                                        M4 6EW، انگلستان
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-auto">
+                        <div class="widget footer-widget">
+                            <h3 class="widget_title">اطلاعات <span class="text-theme">تماس:</span></h3>
+                            <div class="th-widget-contact">
+                                <div class="info-box">
+                                    <p class="info-box_text">
+                                        <a class="info-box_link" href="tel:163254736587">(+163)-2547-36587</a>
+                                        <a class="info-box_link" href="mailto:infohelp@razeit.com">infohelp@razeit.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-auto">
+                        <div class="widget footer-widget">
+                            <h3 class="widget_title">دنبال کنید <span class="text-theme">با ما:</span></h3>
+                            <div class="th-widget-contact">
+                                <div class="th-social style-mask">
+                                    <a class="facebook" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="twitter" href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                    <a class="instagram" href="https://www.instagram.com/">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a class="linkedin" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                                    <a class="google-play" href="https://www.google.com/">
+                                        <img src="../assets/img/icon/google-playstore-icon.svg" alt="icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="مشترک شدن در خبرنامه ما" required="">
+                            <button type="submit" class="th-btn">اکنون مشترک شوید <i class="far fa-arrow-right ms-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap text-center bg-repeat" data-bg-src="../assets/img/bg/jiji-bg.png">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-6">
+                        <p class="copyright-text bg-repeat" data-bg-src="../assets/img/bg/jiji-bg.png">
+                            <i class="fal fa-copyright"></i> کپی رایت 2024 <a href="index.html">Razeit.</a> تمام حقوق محفوظ است.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--********************************
+			Code End  Here 
+	******************************** -->
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+
+    <!--==============================
+    All Js File
+============================== -->
+    <!-- Jquery -->
+    <script src="../assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- Swiper Js -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Counter Up -->
+    <script src="../assets/js/jquery.counterup.min.js"></script>
+    <!-- Range Slider -->
+    <script src="../assets/js/jquery-ui.min.js"></script>
+    <!-- Isotope Filter -->
+    <script src="../assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../assets/js/isotope.pkgd.min.js"></script>
+    <!-- gsap -->
+    <script src="../assets/js/gsap.min.js"></script>
+
+    <script src="../assets/js/waypoints.js"></script>
+    <script src="../assets/js/wow.js"></script>
+    <script src="../assets/js/smooth-scroll.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Main Js File -->
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Debug: Log cart data
+            console.log('Cart data from localStorage:', cart);
+            console.log('Cart length:', cart.length);
+            
+            // Debug: Check HTML elements
+            const cartTableBody = document.querySelector('.cart_table tbody');
+            const cartTotal = document.querySelector('.cart_totals .amount bdi');
+            const orderTotal = document.querySelector('.order-total .amount bdi');
+            
+            console.log('HTML Elements found:');
+            console.log('  cartTableBody:', !!cartTableBody);
+            console.log('  cartTotal:', !!cartTotal);
+            console.log('  orderTotal:', !!orderTotal);
+            
+            updateCartDisplay();
+
+            // Test button for debugging
+            const testButton = document.createElement('button');
+            testButton.textContent = 'افزودن آیتم تست';
+            testButton.style.cssText = 'position: fixed; top: 10px; left: 10px; z-index: 9999; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;';
+            testButton.addEventListener('click', function() {
+                const testProduct = {
+                    id: Date.now(),
+                    name: 'محصول تست',
+                    price: '$10.00',
+                    image: '../assets/img/product/product_thumb_1_1.png',
+                    quantity: 1
+                };
+                cart.push(testProduct);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                console.log('Test product added:', cart);
+                updateCartDisplay();
+            });
+            document.body.appendChild(testButton);
+
+            // Quantity controls
+            const quantityControls = document.querySelectorAll('.qty-btn');
+            quantityControls.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const input = this.parentElement.querySelector('.qty-input');
+                    let value = parseInt(input.value);
+                    
+                    if (this.classList.contains('quantity-plus')) {
+                        value++;
+                    } else if (this.classList.contains('quantity-minus') && value > 1) {
+                        value--;
+                    }
+                    
+                    input.value = value;
+                    updateCartTotal();
+                });
+            });
+
+            // Remove items
+            const removeButtons = document.querySelectorAll('.remove');
+            removeButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'آیا مطمئن هستید؟',
+                        text: "نمی‌توانید این عمل را برگردانید!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'بله، حذف کن!',
+                        cancelButtonText: 'لغو'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.closest('tr').remove();
+                            updateCartTotal();
+                            Swal.fire(
+                                'حذف شد!',
+                                'آیتم از سبد خرید حذف شد.',
+                                'success'
+                            );
+                        }
+                    });
+                });
+            });
+
+            // Update cart display
+            function updateCartDisplay() {
+                console.log('updateCartDisplay called with cart:', cart);
+                const cartTableBody = document.querySelector('.cart_table tbody');
+                const cartTotal = document.querySelector('.cart_totals .amount bdi');
+                const orderTotal = document.querySelector('.order-total .amount bdi');
+                
+                console.log('cartTableBody found:', !!cartTableBody);
+                console.log('cart.length:', cart.length);
+                
+                if (cartTableBody && cart.length > 0) {
+                    // Clear existing cart items (keep the actions row)
+                    const actionsRow = cartTableBody.querySelector('.actions');
+                    cartTableBody.innerHTML = '';
+                    
+                    let total = 0;
+                    
+                    cart.forEach((item, index) => {
+                        const price = parseFloat(item.price.replace('$', '')) || 0;
+                        const itemTotal = price * item.quantity;
+                        total += itemTotal;
+                        
+                        const row = document.createElement('tr');
+                        row.className = 'cart_item';
+                        row.innerHTML = `
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="marketplace-details.html"><img width="91" height="91" src="${item.image}" alt="Image"></a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="marketplace-details.html">${item.name}</a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount"><bdi><span>$</span>${price}</bdi></span>
+                            </td>
+                            <td data-title="Quantity">
+                                <div class="quantity">
+                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
+                                    <input type="number" class="qty-input" value="${item.quantity}" min="1" max="99" data-index="${index}">
+                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
+                                </div>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount"><bdi><span>$</span>${itemTotal}</bdi></span>
+                            </td>
+                            <td data-title="Remove">
+                                <a href="#" class="remove" data-index="${index}"><i class="fal fa-trash-alt"></i></a>
+                            </td>
+                        `;
+                        cartTableBody.appendChild(row);
+                    });
+                    
+                    // Add actions row
+                    cartTableBody.appendChild(actionsRow);
+                    
+                    // Update totals
+                    if (cartTotal) {
+                        cartTotal.innerHTML = `<span>$</span>${total.toFixed(2)}`;
+                    }
+                    if (orderTotal) {
+                        orderTotal.innerHTML = `<span>$</span>${total.toFixed(2)}`;
+                    }
+                    
+                    // Re-attach event listeners
+                    attachEventListeners();
+                } else if (cart.length === 0) {
+                    // Show empty cart message
+                    const cartTableBody = document.querySelector('.cart_table tbody');
+                    if (cartTableBody) {
+                        cartTableBody.innerHTML = `
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <p>سبد خرید شما خالی است. <a href="marketplace.html">ادامه خرید</a></p>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                }
+            }
+
+            // Attach event listeners
+            function attachEventListeners() {
+                // Quantity controls
+                const quantityControls = document.querySelectorAll('.qty-btn');
+                quantityControls.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const input = this.parentElement.querySelector('.qty-input');
+                        const index = parseInt(input.dataset.index);
+                        let value = parseInt(input.value);
+                        
+                        if (this.classList.contains('quantity-plus')) {
+                            value++;
+                        } else if (this.classList.contains('quantity-minus') && value > 1) {
+                            value--;
+                        }
+                        
+                        input.value = value;
+                        cart[index].quantity = value;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                    });
+                });
+
+                // Remove items
+                const removeButtons = document.querySelectorAll('.remove');
+                removeButtons.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const index = parseInt(this.dataset.index);
+                        Swal.fire({
+                            title: 'آیا مطمئن هستید؟',
+                            text: "نمی‌توانید این عمل را برگردانید!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#3085d6',
+                            confirmButtonText: 'بله، حذف کن!',
+                            cancelButtonText: 'لغو'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                cart.splice(index, 1);
+                                localStorage.setItem('cart', JSON.stringify(cart));
+                                updateCartDisplay();
+                                Swal.fire(
+                                    'حذف شد!',
+                                    'آیتم از سبد خرید حذف شد.',
+                                    'success'
+                                );
+                            }
+                        });
+                    });
+                });
+            }
+
+            // Update cart total
+            function updateCartTotal() {
+                let total = 0;
+                const cartItems = document.querySelectorAll('.cart_item');
+                
+                cartItems.forEach(item => {
+                    const price = parseFloat(item.querySelector('.amount bdi').textContent.replace('$', ''));
+                    const quantity = parseInt(item.querySelector('.qty-input').value);
+                    const itemTotal = price * quantity;
+                    
+                    item.querySelector('.cart-col-total .amount bdi').innerHTML = `<span>$</span>${itemTotal}`;
+                    total += itemTotal;
+                });
+                
+                // Update subtotal
+                document.querySelector('.cart_totals .amount bdi').innerHTML = `<span>$</span>${total.toFixed(2)}`;
+                document.querySelector('.order-total .amount bdi').innerHTML = `<span>$</span>${total.toFixed(2)}`;
+            }
+
+            // Coupon functionality
+            const couponForm = document.querySelector('.th-cart-coupon');
+            if (couponForm) {
+                couponForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const couponCode = this.querySelector('input').value;
+                    if (couponCode) {
+                        Swal.fire({
+                            title: 'کوپن اعمال شد!',
+                            text: `کوپن "${couponCode}" با موفقیت اعمال شد!`,
+                            icon: 'success',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    }
+                });
+            }
+
+            // Notification system
+            function showNotification(message, type = 'info') {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.cart-notification');
+                existingNotifications.forEach(notification => notification.remove());
+                
+                // Create notification
+                const notification = document.createElement('div');
+                notification.className = `cart-notification alert alert-${type === 'success' ? 'success' : 'info'}`;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 9999;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    color: white;
+                    background-color: ${type === 'success' ? '#28a745' : '#17a2b8'};
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    animation: slideIn 0.3s ease-out;
+                    direction: rtl;
+                    text-align: right;
+                `;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease-in';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>

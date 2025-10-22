@@ -430,11 +430,15 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1 style="font-family: 'Goldman', sans-serif; font-size: 42px; color: #45F882; text-shadow: 0 0 20px rgba(69, 248, 130, 0.5); margin-bottom: 10px;">
-                            خوش برگشتید، <span id="userName">گیمر</span>!
+                            خوش آمدید <span id="userName">گیمر</span>!
                         </h1>
                         <p style="color: #a0a0a0; font-size: 16px;">اینها اتفاقاتی است که امروز در حساب شما رخ می‌دهد.</p>
                     </div>
                     <div class="col-md-4 text-end">
+                        <button id="refreshBtn" class="action-btn" style="display: inline-flex; padding: 15px 30px; margin-right: 15px;">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>تازه‌سازی</span>
+                        </button>
                         <a href="profile.html" class="action-btn" style="display: inline-flex; padding: 15px 30px;">
                             <i class="fas fa-user-circle"></i>
                             <span>مشاهده پروفایل</span>
@@ -614,10 +618,15 @@
             
             if (!token) {
                 console.log('❌ No auth token found');
-                alert('Please sign in to view dashboard');
-                setTimeout(() => {
+                Swal.fire({
+                    title: 'نیاز به احراز هویت',
+                    text: 'لطفاً وارد شوید تا داشبورد را مشاهده کنید',
+                    icon: 'warning',
+                    confirmButtonText: 'ورود',
+                    allowOutsideClick: false
+                }).then(() => {
                     window.location.href = 'signin.html';
-                }, 1000);
+                });
                 return false;
             }
             
@@ -707,11 +716,22 @@
                 console.error('💥 Error loading dashboard:', error);
                 
                 if (error.message.includes('401')) {
-                    alert('Session expired. Please sign in again.');
-                    localStorage.removeItem('authToken');
-                    window.location.href = 'signin.html';
+                    Swal.fire({
+                        title: 'جلسه منقضی شد',
+                        text: 'لطفاً دوباره وارد شوید.',
+                        icon: 'warning',
+                        confirmButtonText: 'ورود'
+                    }).then(() => {
+                        localStorage.removeItem('authToken');
+                        window.location.href = 'signin.html';
+                    });
                 } else {
-                    alert('Failed to load dashboard. Please try again.');
+                    Swal.fire({
+                        title: 'خطا',
+                        text: 'بارگذاری داشبورد ناموفق بود. لطفاً دوباره تلاش کنید.',
+                        icon: 'error',
+                        confirmButtonText: 'باشه'
+                    });
                 }
             } finally {
                 setLoading(false);
@@ -854,32 +874,54 @@
         // Quick action handlers
         document.getElementById('sellItemBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Sell Item feature coming soon!');
+            window.location.href = 'marketplace.html?action=create';
         });
 
         document.getElementById('buyGemsBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Buy Gems feature coming soon!');
+            window.location.href = 'marketplace.html?tab=gems';
         });
 
         document.getElementById('spinWheelBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Spin Wheel feature coming soon!');
+            window.location.href = 'marketplace.html?tab=wheel';
         });
 
         document.getElementById('browseMarketBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Browse Market feature coming soon!');
+            window.location.href = 'marketplace.html';
         });
 
         document.getElementById('servicesBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Services feature coming soon!');
+            window.location.href = 'service.html';
+        });
+
+        // Additional dashboard features
+        function refreshDashboard() {
+            console.log('🔄 Refreshing dashboard...');
+            loadDashboard();
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(refreshDashboard, 5 * 60 * 1000);
+
+        // Add refresh button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', refreshDashboard);
+            }
         });
 
         document.getElementById('steamBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Steam Connect feature coming soon!');
+            Swal.fire({
+                title: 'به زودی!',
+                text: 'قابلیت اتصال Steam در حال توسعه است.',
+                icon: 'info',
+                confirmButtonText: 'باشه'
+            });
         });
 
         console.log('✅ Dashboard initialized');

@@ -414,6 +414,179 @@
             }
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #45F882;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(69, 248, 130, 0.3);
+        }
+
+        .modal-header h3 {
+            color: #45F882;
+            margin: 0;
+            font-family: 'Goldman', sans-serif;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #45F882;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #6AFFAA;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #45F882;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(69, 248, 130, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #45F882;
+            box-shadow: 0 0 10px rgba(69, 248, 130, 0.3);
+        }
+
+        .form-group small {
+            color: #a0a0a0;
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .form-group small a {
+            color: #45F882;
+            text-decoration: none;
+        }
+
+        .form-group small a:hover {
+            color: #6AFFAA;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #45F882, #2ECC71);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #6AFFAA, #45F882);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(69, 248, 130, 0.1);
+            color: #45F882;
+            border: 1px solid #45F882;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(69, 248, 130, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #FF6B6B, #E74C3C);
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: #fff;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #FFA726, #F39C12);
+            transform: translateY(-2px);
+        }
+
         .back-to-home {
             position: fixed;
             top: 30px;
@@ -676,6 +849,15 @@
                             <button class="btn-secondary" id="changePasswordBtn">
                                 <i class="fas fa-key"></i> تغییر رمز عبور
                             </button>
+                            <button class="btn-primary" id="connectSteamBtn" style="display: none;">
+                                <i class="fab fa-steam"></i> اتصال Steam
+                            </button>
+                            <button class="btn-warning" id="disconnectSteamBtn" style="display: none;">
+                                <i class="fab fa-steam"></i> قطع اتصال Steam
+                            </button>
+                            <button class="btn-danger" id="deactivateBtn">
+                                <i class="fas fa-user-times"></i> غیرفعال کردن حساب
+                            </button>
                             <button class="btn-danger" id="logoutBtn">
                                 <i class="fas fa-sign-out-alt"></i> خروج
                             </button>
@@ -875,6 +1057,18 @@
             
             document.getElementById('userRole').textContent = user.role || 'user';
 
+            // Update Steam buttons visibility
+            const connectSteamBtn = document.getElementById('connectSteamBtn');
+            const disconnectSteamBtn = document.getElementById('disconnectSteamBtn');
+            
+            if (user.steam && user.steam.isConnected) {
+                if (connectSteamBtn) connectSteamBtn.style.display = 'none';
+                if (disconnectSteamBtn) disconnectSteamBtn.style.display = 'block';
+            } else {
+                if (connectSteamBtn) connectSteamBtn.style.display = 'block';
+                if (disconnectSteamBtn) disconnectSteamBtn.style.display = 'none';
+            }
+
             // Store original data
             originalData = { ...user };
             
@@ -998,29 +1192,396 @@
             }, 1000);
         });
 
-        // Change password
+        // Change password functionality
         changePasswordBtn.addEventListener('click', () => {
-            console.log('🔑 Change password clicked');
-            showAlert('Change password feature coming soon!', 'info');
+            console.log('🔐 Opening change password modal...');
+            showChangePasswordModal();
         });
 
-        // Avatar upload
-        document.getElementById('avatarInput').addEventListener('change', (e) => {
-            console.log('📸 Avatar file selected');
-            const file = e.target.files[0];
+        // Show change password modal
+        function showChangePasswordModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>تغییر رمز عبور</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">رمز عبور فعلی</label>
+                            <input type="password" id="currentPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">رمز عبور جدید</label>
+                            <input type="password" id="newPassword" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">تأیید رمز عبور جدید</label>
+                            <input type="password" id="confirmPassword" required minlength="6">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">لغو</button>
+                            <button type="submit" class="btn btn-primary">تغییر رمز عبور</button>
+                        </div>
+                    </form>
+                </div>
+            `;
             
-            if (file) {
-                console.log('📁 File:', file.name);
-                console.log('📏 Size:', (file.size / 1024).toFixed(2) + ' KB');
-                console.log('📋 Type:', file.type);
-                
-                showAlert('Avatar upload feature coming soon!', 'info');
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await changePassword();
+            });
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Change password
+        async function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (newPassword !== confirmPassword) {
+                showAlert('رمزهای عبور جدید مطابقت ندارند', 'error');
+                return;
             }
-        });
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/users/change-password`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newPassword
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('رمز عبور با موفقیت تغییر کرد!', 'success');
+                    closeModal();
+                } else {
+                    showAlert(data.message || 'تغییر رمز عبور ناموفق بود', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Change password error:', error);
+                showAlert('تغییر رمز عبور ناموفق بود. لطفاً دوباره تلاش کنید.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.querySelector('.modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Avatar upload functionality
+        function setupAvatarUpload() {
+            const avatarInput = document.getElementById('avatarInput');
+            const avatarPreview = document.getElementById('avatarPreview');
+            
+            if (avatarInput) {
+                avatarInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+            if (file) {
+                        uploadAvatar(file);
+                    }
+                });
+            }
+        }
+
+        // Upload avatar
+        async function uploadAvatar(file) {
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const formData = new FormData();
+                formData.append('avatar', file);
+                
+                const response = await fetch(`${API_URL}/users/avatar`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('آواتار با موفقیت به‌روزرسانی شد!', 'success');
+                    // Update avatar display
+                    const avatarImg = document.getElementById('avatarImg');
+                    if (avatarImg) {
+                        avatarImg.src = data.avatar + '?t=' + Date.now();
+                    }
+                } else {
+                    showAlert(data.message || 'آپلود آواتار ناموفق بود', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Avatar upload error:', error);
+                showAlert('آپلود آواتار ناموفق بود. لطفاً دوباره تلاش کنید.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Steam integration
+        function setupSteamIntegration() {
+            const connectSteamBtn = document.getElementById('connectSteamBtn');
+            const disconnectSteamBtn = document.getElementById('disconnectSteamBtn');
+            
+            if (connectSteamBtn) {
+                connectSteamBtn.addEventListener('click', showSteamConnectModal);
+            }
+            
+            if (disconnectSteamBtn) {
+                disconnectSteamBtn.addEventListener('click', disconnectSteam);
+            }
+        }
+
+        // Show Steam connect modal
+        function showSteamConnectModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>اتصال حساب Steam</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="steamConnectForm">
+                        <div class="form-group">
+                            <label for="steamId">شناسه Steam</label>
+                            <input type="text" id="steamId" placeholder="شناسه Steam خود را وارد کنید" required>
+                            <small>می‌توانید شناسه Steam خود را در <a href="https://steamid.io/" target="_blank">steamid.io</a> پیدا کنید</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="steamUsername">نام کاربری Steam</label>
+                            <input type="text" id="steamUsername" placeholder="نام کاربری Steam خود را وارد کنید" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">لغو</button>
+                            <button type="submit" class="btn btn-primary">اتصال Steam</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('steamConnectForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await connectSteam();
+            });
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Connect Steam account
+        async function connectSteam() {
+            const steamId = document.getElementById('steamId').value.trim();
+            const steamUsername = document.getElementById('steamUsername').value.trim();
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/steam/connect`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        steamId,
+                        steamUsername
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('حساب Steam با موفقیت متصل شد!', 'success');
+                    closeModal();
+                    loadProfile(); // Reload profile to show Steam info
+                } else {
+                    showAlert(data.message || 'اتصال حساب Steam ناموفق بود', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Steam connect error:', error);
+                showAlert('اتصال حساب Steam ناموفق بود. لطفاً دوباره تلاش کنید.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Disconnect Steam account
+        async function disconnectSteam() {
+            const result = await Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: "نمی‌توانید به راحتی دوباره متصل شوید!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'بله، قطع کن!',
+                cancelButtonText: 'لغو'
+            });
+            
+            if (!result.isConfirmed) {
+                return;
+            }
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/steam/disconnect`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('حساب Steam با موفقیت قطع شد!', 'success');
+                    loadProfile(); // Reload profile to hide Steam info
+                } else {
+                    showAlert(data.message || 'قطع اتصال حساب Steam ناموفق بود', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Steam disconnect error:', error);
+                showAlert('قطع اتصال حساب Steam ناموفق بود. لطفاً دوباره تلاش کنید.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Account deactivation
+        function setupAccountDeactivation() {
+            const deactivateBtn = document.getElementById('deactivateBtn');
+            
+            if (deactivateBtn) {
+                deactivateBtn.addEventListener('click', showDeactivateModal);
+            }
+        }
+
+        // Show deactivate account modal
+        function showDeactivateModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>غیرفعال کردن حساب</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>هشدار:</strong> این عمل حساب شما را غیرفعال خواهد کرد. شما قادر به ورود یا استفاده از خدمات نخواهید بود.</p>
+                        <p>آیا مطمئن هستید که می‌خواهید حساب خود را غیرفعال کنید؟</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">لغو</button>
+                        <button type="button" class="btn btn-danger" onclick="deactivateAccount()">غیرفعال کردن حساب</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Deactivate account
+        async function deactivateAccount() {
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/users/account`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('حساب با موفقیت غیرفعال شد', 'success');
+                    setTimeout(() => {
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('userData');
+                        window.location.href = 'signin.html';
+                    }, 2000);
+                } else {
+                    showAlert(data.message || 'غیرفعال کردن حساب ناموفق بود', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Account deactivation error:', error);
+                showAlert('غیرفعال کردن حساب ناموفق بود. لطفاً دوباره تلاش کنید.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
 
         // Initialize
         console.log('🎬 Initializing profile page...');
         loadProfile();
+        
+        // Setup additional features
+        setupAvatarUpload();
+        setupSteamIntegration();
+        setupAccountDeactivation();
+        
         console.log('✅ Profile page initialized and ready');
     </script>
 

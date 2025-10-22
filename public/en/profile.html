@@ -414,6 +414,179 @@
             }
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #45F882;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(69, 248, 130, 0.3);
+        }
+
+        .modal-header h3 {
+            color: #45F882;
+            margin: 0;
+            font-family: 'Goldman', sans-serif;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #45F882;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #6AFFAA;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #45F882;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(69, 248, 130, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #45F882;
+            box-shadow: 0 0 10px rgba(69, 248, 130, 0.3);
+        }
+
+        .form-group small {
+            color: #a0a0a0;
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .form-group small a {
+            color: #45F882;
+            text-decoration: none;
+        }
+
+        .form-group small a:hover {
+            color: #6AFFAA;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #45F882, #2ECC71);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #6AFFAA, #45F882);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(69, 248, 130, 0.1);
+            color: #45F882;
+            border: 1px solid #45F882;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(69, 248, 130, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #FF6B6B, #E74C3C);
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #F39C12, #E67E22);
+            color: #fff;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #FFA726, #F39C12);
+            transform: translateY(-2px);
+        }
+
         .back-to-home {
             position: fixed;
             top: 30px;
@@ -676,6 +849,15 @@
                             <button class="btn-secondary" id="changePasswordBtn">
                                 <i class="fas fa-key"></i> Change Password
                             </button>
+                            <button class="btn-primary" id="connectSteamBtn" style="display: none;">
+                                <i class="fab fa-steam"></i> Connect Steam
+                            </button>
+                            <button class="btn-warning" id="disconnectSteamBtn" style="display: none;">
+                                <i class="fab fa-steam"></i> Disconnect Steam
+                            </button>
+                            <button class="btn-danger" id="deactivateBtn">
+                                <i class="fas fa-user-times"></i> Deactivate Account
+                            </button>
                             <button class="btn-danger" id="logoutBtn">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </button>
@@ -699,6 +881,140 @@
     <script src="../assets/js/swiper-bundle.min.js"></script>
     <!-- Theme Custom JS -->
     <script src="../assets/js/main.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- SweetAlert2 Custom Theme -->
+    <style>
+        .swal2-popup {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 2px solid var(--theme-color, #45F882) !important;
+            border-radius: 15px !important;
+            box-shadow: 0 0 30px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-family: var(--title-font, 'Rajdhani', sans-serif) !important;
+            font-weight: 600 !important;
+            font-size: 24px !important;
+        }
+        
+        .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-confirm {
+            background: linear-gradient(135deg, var(--theme-color, #45F882) 0%, #2ECC71 100%) !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            box-shadow: 0 4px 15px rgba(69, 248, 130, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-confirm:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(69, 248, 130, 0.6) !important;
+        }
+        
+        .swal2-cancel {
+            background: var(--black-color3, #0F1C23) !important;
+            border: 2px solid var(--th-border-color, #6C6C6C) !important;
+            border-radius: 8px !important;
+            color: var(--body-color, #969EB2) !important;
+            font-family: var(--body-font, 'Poppins', sans-serif) !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-cancel:hover {
+            background: var(--th-border-color, #6C6C6C) !important;
+            color: var(--white-color, #ffffff) !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .swal2-icon.swal2-success {
+            border-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-success .swal2-success-ring {
+            border-color: rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-icon.swal2-success [class^=swal2-success-line] {
+            background-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-warning {
+            border-color: var(--theme-color2, #FFBE18) !important;
+            color: var(--theme-color2, #FFBE18) !important;
+        }
+        
+        .swal2-icon.swal2-error {
+            border-color: var(--error-color, #F2003A) !important;
+            color: var(--error-color, #F2003A) !important;
+        }
+        
+        .swal2-icon.swal2-info {
+            border-color: var(--theme-color3, #6240CF) !important;
+            color: var(--theme-color3, #6240CF) !important;
+        }
+        
+        .swal2-toast {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 1px solid var(--theme-color, #45F882) !important;
+            border-radius: 10px !important;
+            box-shadow: 0 0 20px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-toast .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-toast .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 14px !important;
+        }
+        
+        .swal2-close {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 28px !important;
+        }
+        
+        .swal2-close:hover {
+            color: var(--theme-color, #45F882) !important;
+        }
+        
+        /* Animation enhancements */
+        .swal2-show {
+            animation: swal2-show 0.3s ease-out !important;
+        }
+        
+        @keyframes swal2-show {
+            0% {
+                transform: scale(0.7) !important;
+                opacity: 0 !important;
+            }
+            45% {
+                transform: scale(1.05) !important;
+                opacity: 1 !important;
+            }
+            80% {
+                transform: scale(0.95) !important;
+            }
+            100% {
+                transform: scale(1) !important;
+            }
+        }
+    </style>
 
     <script>
         // Configuration
@@ -729,15 +1045,19 @@
         // Helper functions
         function showAlert(message, type = 'error') {
             console.log(`🔔 Alert: [${type.toUpperCase()}] ${message}`);
-            alertContainer.innerHTML = `
-                <div class="alert alert-${type}">
-                    ${message}
-                </div>
-            `;
             
-            setTimeout(() => {
-                alertContainer.innerHTML = '';
-            }, 5000);
+            const icon = type === 'success' ? 'success' : 'error';
+            const title = type === 'success' ? 'Success!' : 'Error!';
+            
+            Swal.fire({
+                title: title,
+                text: message,
+                icon: icon,
+                timer: 3000,
+                showConfirmButton: false,
+                toast: true,
+                position: 'top-end'
+            });
         }
 
         function setLoading(isLoading) {
@@ -875,6 +1195,18 @@
             
             document.getElementById('userRole').textContent = user.role || 'user';
 
+            // Update Steam buttons visibility
+            const connectSteamBtn = document.getElementById('connectSteamBtn');
+            const disconnectSteamBtn = document.getElementById('disconnectSteamBtn');
+            
+            if (user.steam && user.steam.isConnected) {
+                if (connectSteamBtn) connectSteamBtn.style.display = 'none';
+                if (disconnectSteamBtn) disconnectSteamBtn.style.display = 'block';
+            } else {
+                if (connectSteamBtn) connectSteamBtn.style.display = 'block';
+                if (disconnectSteamBtn) disconnectSteamBtn.style.display = 'none';
+            }
+
             // Store original data
             originalData = { ...user };
             
@@ -982,45 +1314,396 @@
             updateProfile(formData);
         });
 
-        // Logout
-        logoutBtn.addEventListener('click', () => {
-            console.log('🚪 Logging out...');
-            console.log('💾 Clearing localStorage...');
-            
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('userData');
-            
-            console.log('✅ Logged out successfully');
-            showAlert('Logged out successfully', 'success');
-            
-            setTimeout(() => {
-                window.location.href = 'signin.html';
-            }, 1000);
+        // Change password functionality
+        changePasswordBtn.addEventListener('click', () => {
+            console.log('🔐 Opening change password modal...');
+            showChangePasswordModal();
         });
+
+        // Show change password modal
+        function showChangePasswordModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Change Password</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" required minlength="6">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await changePassword();
+            });
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
 
         // Change password
-        changePasswordBtn.addEventListener('click', () => {
-            console.log('🔑 Change password clicked');
-            showAlert('Change password feature coming soon!', 'info');
-        });
-
-        // Avatar upload
-        document.getElementById('avatarInput').addEventListener('change', (e) => {
-            console.log('📸 Avatar file selected');
-            const file = e.target.files[0];
+        async function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
             
-            if (file) {
-                console.log('📁 File:', file.name);
-                console.log('📏 Size:', (file.size / 1024).toFixed(2) + ' KB');
-                console.log('📋 Type:', file.type);
-                
-                showAlert('Avatar upload feature coming soon!', 'info');
+            if (newPassword !== confirmPassword) {
+                showAlert('New passwords do not match', 'error');
+                return;
             }
-        });
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/users/change-password`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newPassword
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('Password changed successfully!', 'success');
+                    closeModal();
+                } else {
+                    showAlert(data.message || 'Failed to change password', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Change password error:', error);
+                showAlert('Failed to change password. Please try again.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.querySelector('.modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Avatar upload functionality
+        function setupAvatarUpload() {
+            const avatarInput = document.getElementById('avatarInput');
+            const avatarPreview = document.getElementById('avatarPreview');
+            
+            if (avatarInput) {
+                avatarInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+            if (file) {
+                        uploadAvatar(file);
+                    }
+                });
+            }
+        }
+
+        // Upload avatar
+        async function uploadAvatar(file) {
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const formData = new FormData();
+                formData.append('avatar', file);
+                
+                const response = await fetch(`${API_URL}/users/avatar`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('Avatar updated successfully!', 'success');
+                    // Update avatar display
+                    const avatarImg = document.getElementById('avatarImg');
+                    if (avatarImg) {
+                        avatarImg.src = data.avatar + '?t=' + Date.now();
+                    }
+                } else {
+                    showAlert(data.message || 'Failed to upload avatar', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Avatar upload error:', error);
+                showAlert('Failed to upload avatar. Please try again.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Steam integration
+        function setupSteamIntegration() {
+            const connectSteamBtn = document.getElementById('connectSteamBtn');
+            const disconnectSteamBtn = document.getElementById('disconnectSteamBtn');
+            
+            if (connectSteamBtn) {
+                connectSteamBtn.addEventListener('click', showSteamConnectModal);
+            }
+            
+            if (disconnectSteamBtn) {
+                disconnectSteamBtn.addEventListener('click', disconnectSteam);
+            }
+        }
+
+        // Show Steam connect modal
+        function showSteamConnectModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Connect Steam Account</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="steamConnectForm">
+                        <div class="form-group">
+                            <label for="steamId">Steam ID</label>
+                            <input type="text" id="steamId" placeholder="Enter your Steam ID" required>
+                            <small>You can find your Steam ID at <a href="https://steamid.io/" target="_blank">steamid.io</a></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="steamUsername">Steam Username</label>
+                            <input type="text" id="steamUsername" placeholder="Enter your Steam username" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Connect Steam</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('steamConnectForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await connectSteam();
+            });
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Connect Steam account
+        async function connectSteam() {
+            const steamId = document.getElementById('steamId').value.trim();
+            const steamUsername = document.getElementById('steamUsername').value.trim();
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/steam/connect`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        steamId,
+                        steamUsername
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('Steam account connected successfully!', 'success');
+                    closeModal();
+                    loadProfile(); // Reload profile to show Steam info
+                } else {
+                    showAlert(data.message || 'Failed to connect Steam account', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Steam connect error:', error);
+                showAlert('Failed to connect Steam account. Please try again.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Disconnect Steam account
+        async function disconnectSteam() {
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to reconnect easily!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, disconnect it!',
+                cancelButtonText: 'Cancel'
+            });
+            
+            if (!result.isConfirmed) {
+                return;
+            }
+            
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/steam/disconnect`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('Steam account disconnected successfully!', 'success');
+                    loadProfile(); // Reload profile to hide Steam info
+                } else {
+                    showAlert(data.message || 'Failed to disconnect Steam account', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Steam disconnect error:', error);
+                showAlert('Failed to disconnect Steam account. Please try again.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // Account deactivation
+        function setupAccountDeactivation() {
+            const deactivateBtn = document.getElementById('deactivateBtn');
+            
+            if (deactivateBtn) {
+                deactivateBtn.addEventListener('click', showDeactivateModal);
+            }
+        }
+
+        // Show deactivate account modal
+        function showDeactivateModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Deactivate Account</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Warning:</strong> This action will deactivate your account. You will not be able to log in or use any services.</p>
+                        <p>Are you sure you want to deactivate your account?</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button type="button" class="btn btn-danger" onclick="deactivateAccount()">Deactivate Account</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Handle close button
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Deactivate account
+        async function deactivateAccount() {
+            const token = checkAuth();
+            if (!token) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch(`${API_URL}/users/account`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showAlert('Account deactivated successfully', 'success');
+                    setTimeout(() => {
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('userData');
+                        window.location.href = 'signin.html';
+                    }, 2000);
+                } else {
+                    showAlert(data.message || 'Failed to deactivate account', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Account deactivation error:', error);
+                showAlert('Failed to deactivate account. Please try again.', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
 
         // Initialize
         console.log('🎬 Initializing profile page...');
         loadProfile();
+        
+        // Setup additional features
+        setupAvatarUpload();
+        setupSteamIntegration();
+        setupAccountDeactivation();
+        
         console.log('✅ Profile page initialized and ready');
     </script>
 

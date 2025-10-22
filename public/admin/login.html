@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود ادمین - پلتفرم بازی رازیت</title>
+    <meta name="description" content="ورود ادمین برای پلتفرم بازی رازیت">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Persian Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SweetAlert2 Custom Theme -->
+    <style>
+        .swal2-popup {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 2px solid var(--theme-color, #45F882) !important;
+            border-radius: 15px !important;
+            box-shadow: 0 0 30px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 24px !important;
+        }
+        
+        .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-confirm {
+            background: linear-gradient(135deg, var(--theme-color, #45F882) 0%, #2ECC71 100%) !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            box-shadow: 0 4px 15px rgba(69, 248, 130, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-confirm:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(69, 248, 130, 0.6) !important;
+        }
+        
+        .swal2-cancel {
+            background: var(--black-color3, #0F1C23) !important;
+            border: 2px solid var(--th-border-color, #6C6C6C) !important;
+            border-radius: 8px !important;
+            color: var(--body-color, #969EB2) !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-cancel:hover {
+            background: var(--th-border-color, #6C6C6C) !important;
+            color: var(--white-color, #ffffff) !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .swal2-icon.swal2-success {
+            border-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-success .swal2-success-ring {
+            border-color: rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-icon.swal2-success [class^=swal2-success-line] {
+            background-color: var(--theme-color, #45F882) !important;
+        }
+        
+        .swal2-icon.swal2-warning {
+            border-color: var(--theme-color2, #FFBE18) !important;
+            color: var(--theme-color2, #FFBE18) !important;
+        }
+        
+        .swal2-icon.swal2-error {
+            border-color: var(--error-color, #F2003A) !important;
+            color: var(--error-color, #F2003A) !important;
+        }
+        
+        .swal2-icon.swal2-info {
+            border-color: var(--theme-color3, #6240CF) !important;
+            color: var(--theme-color3, #6240CF) !important;
+        }
+        
+        .swal2-toast {
+            background: var(--black-color2, #1A1D26) !important;
+            border: 1px solid var(--theme-color, #45F882) !important;
+            border-radius: 10px !important;
+            box-shadow: 0 0 20px rgba(69, 248, 130, 0.3) !important;
+        }
+        
+        .swal2-toast .swal2-title {
+            color: var(--theme-color, #45F882) !important;
+            font-size: 16px !important;
+        }
+        
+        .swal2-toast .swal2-content {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 14px !important;
+        }
+        
+        .swal2-close {
+            color: var(--body-color, #969EB2) !important;
+            font-size: 28px !important;
+        }
+        
+        .swal2-close:hover {
+            color: var(--theme-color, #45F882) !important;
+        }
+        
+        /* Animation enhancements */
+        .swal2-show {
+            animation: swal2-show 0.3s ease-out !important;
+        }
+        
+        @keyframes swal2-show {
+            0% {
+                transform: scale(0.7) !important;
+                opacity: 0 !important;
+            }
+            45% {
+                transform: scale(1.05) !important;
+                opacity: 1 !important;
+            }
+            80% {
+                transform: scale(0.95) !important;
+            }
+            100% {
+                transform: scale(1) !important;
+            }
+        }
+    </style>
+    
+    <!-- Admin Login Styles -->
+    <style>
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--black-color3, #0F1C23) 0%, var(--black-color2, #1A1D26) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .admin-login-container {
+            background: var(--black-color2, #1A1D26);
+            border: 2px solid var(--theme-color, #45F882);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(69, 248, 130, 0.3);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .admin-login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--theme-color, #45F882), var(--theme-color2, #FFBE18), var(--theme-color3, #6240CF));
+        }
+        
+        .admin-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-logo img {
+            max-width: 120px;
+            height: auto;
+        }
+        
+        .admin-title {
+            color: var(--theme-color, #45F882);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .admin-subtitle {
+            color: var(--body-color, #969EB2);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            color: var(--theme-color, #45F882);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-control {
+            background: var(--black-color3, #0F1C23);
+            border: 2px solid var(--th-border-color, #6C6C6C);
+            border-radius: 10px;
+            color: var(--white-color, #ffffff);
+            padding: 12px 16px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: right;
+        }
+        
+        .form-control:focus {
+            background: var(--black-color3, #0F1C23);
+            border-color: var(--theme-color, #45F882);
+            color: var(--white-color, #ffffff);
+            box-shadow: 0 0 20px rgba(69, 248, 130, 0.3);
+        }
+        
+        .form-control::placeholder {
+            color: var(--body-color, #969EB2);
+            text-align: right;
+        }
+        
+        .btn-admin-login {
+            background: linear-gradient(135deg, var(--theme-color, #45F882) 0%, #2ECC71 100%);
+            border: none;
+            border-radius: 10px;
+            color: var(--white-color, #ffffff);
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 30px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-admin-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(69, 248, 130, 0.4);
+        }
+        
+        .btn-admin-login:active {
+            transform: translateY(0);
+        }
+        
+        .btn-admin-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--white-color, #ffffff);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .back-to-site {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-to-site a {
+            color: var(--body-color, #969EB2);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-site a:hover {
+            color: var(--theme-color, #45F882);
+        }
+        
+        .security-notice {
+            background: rgba(69, 248, 130, 0.1);
+            border: 1px solid rgba(69, 248, 130, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .security-notice i {
+            color: var(--theme-color, #45F882);
+            margin-left: 8px;
+        }
+        
+        .security-notice p {
+            color: var(--body-color, #969EB2);
+            margin: 0;
+            font-size: 12px;
+        }
+        
+        .test-credentials {
+            background: rgba(255, 190, 24, 0.1);
+            border: 1px solid rgba(255, 190, 24, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .test-credentials i {
+            color: var(--theme-color2, #FFBE18);
+            margin-left: 8px;
+        }
+        
+        .test-credentials p {
+            color: var(--body-color, #969EB2);
+            margin: 0;
+            font-size: 12px;
+        }
+        
+        .test-credentials strong {
+            color: var(--theme-color2, #FFBE18);
+        }
+        
+        @media (max-width: 480px) {
+            .admin-login-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            .admin-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-login-container">
+        <div class="admin-logo">
+            <img src="../assets/img/logo-dark-removebg-preview.png" alt="لوگوی رازیت">
+        </div>
+        
+        <h1 class="admin-title">پنل مدیریت</h1>
+        <p class="admin-subtitle">دسترسی امن به مدیریت پلتفرم</p>
+        
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    <i class="fas fa-envelope"></i> آدرس ایمیل
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-control" 
+                    placeholder="admin@razeit.com"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock"></i> رمز عبور
+                </label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-control" 
+                    placeholder="رمز عبور خود را وارد کنید"
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+            
+            <button type="submit" class="btn-admin-login" id="loginBtn">
+                <span class="loading-spinner" id="loadingSpinner"></span>
+                <span id="loginText">ورود به پنل مدیریت</span>
+            </button>
+        </form>
+        
+        <div class="test-credentials">
+            <i class="fas fa-key"></i>
+            <p>اطلاعات تست: <strong>admin@razeit.com</strong> / <strong>admin123</strong></p>
+        </div>
+        
+        <div class="security-notice">
+            <i class="fas fa-shield-alt"></i>
+            <p>این یک منطقه امن مدیریتی است. تمام فعالیت‌ها ثبت و نظارت می‌شود.</p>
+        </div>
+        
+        <div class="back-to-site">
+            <a href="../fa/index.html">
+                <i class="fas fa-arrow-right"></i> بازگشت به سایت اصلی
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Configuration
+        const API_URL = 'http://localhost:5000/api';
+        
+        console.log('🔐 صفحه ورود ادمین بارگذاری شد');
+        
+        // Check if already logged in as admin
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('authToken');
+            const userData = localStorage.getItem('userData');
+            
+            if (token && userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    if (user.role === 'admin') {
+                        Swal.fire({
+                            title: 'قبلاً وارد شده‌اید',
+                            text: 'شما قبلاً به عنوان ادمین وارد شده‌اید.',
+                            icon: 'info',
+                            confirmButtonText: 'رفتن به داشبورد',
+                            allowOutsideClick: false
+                        }).then(() => {
+                            window.location.href = 'dashboard.html';
+                        });
+                    }
+                } catch (error) {
+                    console.error('خطا در تجزیه اطلاعات کاربر:', error);
+                }
+            }
+        });
+        
+        // Login form submission
+        document.getElementById('adminLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginText = document.getElementById('loginText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            // Show loading state
+            loginBtn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
+            loginText.textContent = 'در حال احراز هویت...';
+            
+            try {
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ login: email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    // Check if user is admin
+                    if (data.user.role !== 'admin') {
+                        throw new Error('دسترسی رد شد. دسترسی ادمین مورد نیاز است.');
+                    }
+                    
+                    // Store auth data
+                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('userData', JSON.stringify(data.user));
+                    
+                    // Show success message
+                    Swal.fire({
+                        title: 'ورود موفق!',
+                        text: `خوش آمدید، ${data.user.username}!`,
+                        icon: 'success',
+                        timer: 2000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = 'dashboard.html';
+                    });
+                    
+                } else {
+                    throw new Error(data.message || 'ورود ناموفق');
+                }
+                
+            } catch (error) {
+                console.error('خطای ورود:', error);
+                
+                Swal.fire({
+                    title: 'ورود ناموفق',
+                    text: error.message || 'اطلاعات نامعتبر. لطفاً دوباره تلاش کنید.',
+                    icon: 'error',
+                    confirmButtonText: 'تلاش مجدد'
+                });
+                
+            } finally {
+                // Reset button state
+                loginBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+                loginText.textContent = 'ورود به پنل مدیریت';
+            }
+        });
+        
+        // Enter key handling
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('adminLoginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+        
+        // Auto-focus email field
+        document.getElementById('email').focus();
+    </script>
+</body>
+</html>
