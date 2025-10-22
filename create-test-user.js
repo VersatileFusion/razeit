@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
 // const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/razeit-gaming-platform';
 
 
-const MONGODB_URI = 'mongodb+srv://erfanahmadvand52:SL9IpmJKT4T3lhVK@cluster0.hmm0pik.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = 'mongodb+srv://<user>:<pass>@cluster0.hmm0pik.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 
 
